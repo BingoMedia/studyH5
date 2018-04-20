@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var a = [{name: 1}, {name: 2}, {name: 3}];
+    console.log(a.slice(0));
+
+    var b = a;     //浅克隆  会改变
+
+    var c = [].concat(a);  // 深克隆  FIXME   一般来说深克隆了，原数组应该不会改变  ，但是变了
+
+    a.push(4);
+
+    a[0].name = 10;
+
+
+    console.log(b);
+
+    console.log(c);
+
+    //[{name: 10}，{name: 2}，{name: 3}，4]
+
+    //[{name: 10},{name: 2},{name: 3}]
+</script>
+
+</body>
+</html>

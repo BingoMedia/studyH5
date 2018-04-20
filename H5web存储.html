@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <meta charset="utf-8">
+     
+    <title>菜鸟教程(runoob.com)</title> 
+</head>
+<body>
+<ol>
+    <li>localStorage - 没有时间限制的数据存储
+        <ul>
+            <li>
+                localStorage 对象存储的数据没有时间限制。第二天、第二周或下一年之后，数据依然可用。
+            </li>
+            <li>
+                <p>移除 localStorage 中的 "lastname" :</p>
+                <code>localStorage.removeItem("lastname");</code>
+            </li>
+        </ul>
+    </li>
+    <li>sessionStorage - 针对一个 session 的数据存储</li>
+</ol>
+<h1>不管是 localStorage，还是 sessionStorage，可使用的API都相同，常用的有如下几个（以localStorage为例）：</h1>
+
+<ul>
+    <li>保存数据：localStorage.setItem(key,value);</li>
+    <li>读取数据：localStorage.getItem(key);</li>
+    <li>删除单个数据：localStorage.removeItem(key);</li>
+    <li>删除所有数据：localStorage.clear();</li>
+    <li>得到某个索引的key：localStorage.key(index);</li>
+</ul>
+
+
+<h1> 存储localStorage 并读取</h1>
+<div id="result"></div>
+
+<h1>用存储localStorage进行存储计算</h1>
+<p>
+    <button onclick="clickCounter()" type="button">点我！</button>
+</p>
+<div id="result1"></div>
+<p>点击该按钮查看计数器的增加。</p>
+<p>关闭浏览器选项卡(或窗口),重新打开此页面,计数器将继续计数(不是重置)。</p>
+
+
+<h1>sessionStorage 对象</h1>
+<p>sessionStorage 方法针对一个 session 进行数据存储。当用户关闭浏览器窗口后，数据会被删除。</p>
+
+<p><button onclick="clickSessionCounter()" type="button">点我！</button></p>
+<div id="result2"></div>
+<p>点击该按钮查看计数器的增加。</p>
+<p>关闭浏览器选项卡(或窗口),重新打开此页面,计数器将重置。</p>
+
+
+<script>
+
+    // 判断是否支持 localStorage
+    if (typeof(Storage) !== "undefined") {
+        localStorage.sitename = "菜鸟教程";
+        document.getElementById("result").innerHTML = "网站名：" + localStorage.sitename;
+    }
+    else {
+        document.getElementById("result").innerHTML = "对不起，您的浏览器不支持 web 存储。";
+    }
+
+
+    //用存储localStorage进行存储计算
+    function clickCounter() {
+        if (typeof(Storage) !== "undefined") {
+            if (localStorage.clickcount) {
+                localStorage.clickcount = Number(localStorage.clickcount) + 1;
+            }
+            else {
+                localStorage.clickcount = 1;
+            }
+            document.getElementById("result1").innerHTML = " 你已经点击了按钮 " + localStorage.clickcount + " 次 ";
+        }
+        else {
+            document.getElementById("result1").innerHTML = "对不起，您的浏览器不支持 web 存储。";
+        }
+    }
+
+    //sessionStorage
+    function clickSessionCounter()
+    {
+        if(typeof(Storage)!=="undefined")
+        {
+            if (sessionStorage.clickcount)
+            {
+                sessionStorage.clickcount=Number(sessionStorage.clickcount)+1;
+            }
+            else
+            {
+                sessionStorage.clickcount=1;
+            }
+            document.getElementById("result2").innerHTML="在这个会话中你已经点击了该按钮 " + sessionStorage.clickcount + " 次 ";
+        }
+        else
+        {
+            document.getElementById("result2").innerHTML="抱歉，您的浏览器不支持 web 存储";
+        }
+    }
+
+</script>
+
+</body>
+</html>
