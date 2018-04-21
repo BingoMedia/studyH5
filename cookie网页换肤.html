@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <title>无标题文档</title>
+</head>
+
+<body>
+<input type="button" value="恢复默认">
+<input type="button" value="皮肤1">
+<input type="button" value="皮肤2">
+<input type="button" value="皮肤3">
+<input type="button" value="皮肤4">
+<input type="button" value="皮肤5">
+
+<button onClick="checkCookie()">
+    check
+
+</button>
+<script>
+
+    var oIn = document.getElementsByTagName('input');
+    var arr = ['#ff4e00', '#ffc502', '#4c8502', '#009cff', '#a19fea'];
+
+    if (getCookie('background')) {
+        console.log(getCookie('background'));
+        document.body.style.background = getCookie('background');
+    }
+
+    oIn[0].onclick = function () {
+        document.body.style.background = '';
+        if (getCookie('background')) {
+            delCookie('background');
+            console.log(1)
+        }
+    };
+
+    for (var i = 1; i < oIn.length; i++) {
+        oIn[i].index = i;
+        oIn[i].onclick = function () {
+            document.body.style.background = arr[this.index - 1];
+            setCookie('background', arr[this.index - 1], 365)
+
+        }
+    }
+
+    function setCookie(c_name, value, expiredays) {
+        var exdate = new Date();
+        exdate.setDate(exdate.getDate() + expiredays);
+        //encodeURI()
+        //escape()  是已经废弃的方法  ，可以使用 encodeURI()替代
+        //toGMTString() 方法可根据格林威治时间 (GMT) 把 Date 对象转换为字符串，并返回结果。  建议用 toUTCString() 方法替换 toGMTString()方法
+        document.cookie = c_name + "=" + encodeURI(value) + ((expiredays == null) ? "" : ";expires=" + exdate.toUTCString());
+        console.log('c_name', c_name);
+        console.log('value', value);
+        console.log('expiredays', expiredays);
+        console.log('document.cookie', document.cookie.length);
+    }
+
+    function getCookie(c_name) {
+        if (document.cookie.length > 0) {
+            c_start = document.cookie.indexOf(c_name + "=");
+            if (c_start != -1) {
+                c_start = c_start + c_name.length + 1;
+                c_end = document.cookie.indexOf(";", c_start);
+                if (c_end == -1) c_end = document.cookie.length;
+                //decodeURI() 对应encodeURI()
+                //unescape()对应escape()废弃的方法
+                //substring() 方法用于提取字符串中介于两个指定下标之间的字符。 stringObject.substring(start,stop)
+                return decodeURI(document.cookie.substring(c_start, c_end))
+            }
+        }
+        return ""
+    }
+
+    function delCookie(key) {
+        setCookie(key, '', -1);
+    }
+
+    function checkCookie() {
+        background = getCookie('background');
+        console.log(background);
+        if (background != null && background != "") {
+            alert('Welcome again ' + background + '!')
+        }
+        else {
+
+            // prompt()方法用于显示可提示用户进行输入的对话框。这个方法返回用户输入的字符串。 prompt(msg,defaultText)
+            background = prompt('Please enter your name:', "");
+            if (background != null && background != "") {
+                setCookie('background', background, 365)
+            }
+        }
+    }
+</script>
+</body>
+</html>
+

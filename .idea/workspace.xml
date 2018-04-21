@@ -2,23 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b375c83-f484-400b-89fc-4e4113c90881" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/H5web存储.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/H5表单元素.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/h5Web存储1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/planets.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/video/h5Web存储2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/video/mov_bbb.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/图片map跳转.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/对象数组filter为什么改变原对象数组的对象值.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/拖放div.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/来回拖放图片.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/标签.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/自定义H5标签.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/获取地理位置.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/表格.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/视频video.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cookie网页换肤.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -37,27 +22,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="474">
               <caret line="42" column="37" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="图片map跳转.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/图片map跳转.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-              <folding>
-                <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="自定义H5标签.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/自定义H5标签.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="30" column="7" lean-forward="true" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -104,8 +68,8 @@
       <file leaf-file-name="H5web存储.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/H5web存储.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="827">
-              <caret line="82" column="20" selection-start-line="82" selection-start-column="20" selection-end-line="82" selection-end-column="20" />
+            <state relative-caret-position="45">
+              <caret line="3" selection-start-line="3" selection-end-line="4" />
             </state>
           </provider>
         </entry>
@@ -122,7 +86,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="h5Web存储2.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="h5Web存储2.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/video/h5Web存储2.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="488">
@@ -130,6 +94,15 @@
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cookie网页换肤.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/cookie网页换肤.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -169,6 +142,7 @@
         <option value="$PROJECT_DIR$/H5web存储.html" />
         <option value="$PROJECT_DIR$/h5Web存储1.html" />
         <option value="$PROJECT_DIR$/video/h5Web存储2.html" />
+        <option value="$PROJECT_DIR$/cookie网页换肤.html" />
       </list>
     </option>
   </component>
@@ -199,11 +173,6 @@
               <item name="studyH5" type="b2602c69:ProjectViewProjectNode" />
               <item name="studyH5" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="studyH5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="studyH5" type="462c0819:PsiDirectoryNode" />
-              <item name="video" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -224,6 +193,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/video" />
       <recent name="$PROJECT_DIR$/img" />
     </key>
@@ -251,12 +221,12 @@
       <option name="presentableId" value="Default" />
       <updated>1524122239019</updated>
       <workItem from="1524122240331" duration="4674000" />
-      <workItem from="1524204907907" duration="4420000" />
+      <workItem from="1524204907907" duration="6019000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9094000" />
+    <option name="totallyTimeSpent" value="10693000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="71" y="23" width="1849" height="1177" extended-state="6" />
@@ -270,7 +240,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32962963" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -434,13 +404,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/H5web存储.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="827">
-          <caret line="82" column="20" selection-start-line="82" selection-start-column="20" selection-end-line="82" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/h5Web存储1.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="656">
@@ -458,6 +421,27 @@
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es5.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="94" column="17" selection-start-line="94" selection-start-column="17" selection-end-line="94" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/H5web存储.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cookie网页换肤.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
         </state>
       </provider>
     </entry>
