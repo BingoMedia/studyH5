@@ -1,0 +1,654 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta content="email=no" name="format-detection"/>
+    <title>人才新政</title>
+    <script src="js/jquery.js" language="javascript"></script>
+    <script src="js/d3.min.js" language="javascript"></script>
+    <script src="js/didi.js" language="javascript"></script>
+    <script src="js/jquery.color.js" language="javascript"></script>
+    <script src="js/echarts.min.js"></script>
+    <script src="js/china.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <style>
+        body {
+            font-size: 16px;
+            font-family: arial, "Microsoft YaHei", 微软雅黑;
+            color: #000;
+            background: #fff;
+            background-image: url(images/bg.jpg);
+            background-repeat: repeat;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        /*.cx-logo {*/
+        /*position: absolute;*/
+        /*top: 5px;*/
+        /*left: 5px;*/
+        /*width: 56px;*/
+        /*height: 40px;*/
+        /*background-image: url(images/caixin.png);*/
+        /*z-index: 999*/
+        /*}*/
+
+        .cover .image {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 600px;
+            background-image: url("images/cover1.png");
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+<!--<a href="http://www.caixin.com">
+    <div class="cx-logo"></div>
+</a>-->
+
+
+<div class="cover">
+    <div class="image-wrap">
+        <div class="image">
+        </div>
+    </div>
+    <div class="title">
+        <p style="font-size:60px;">
+            <span style="font-size:48px;">逃离“</span><span>北上广</span><span
+                style="font-size:48px;">”之后</span>
+        </p>
+        <p style="font-size:60px;"><span>人才新政</span><span style="font-size:48px;">下我们选择去哪一城筑梦？</span></p>
+    </div>
+    <div class="sub-title">
+        <p>“2017年，普通高校毕业生有多少人？”</p>
+        <p>“这是什么概念？”</p>
+        <p>“相当于瑞士的全国总人口。”</p>
+        <p>“每年都是这样吗？”</p>
+        <p>“差不多，并且从2012年起，每年毕业生人数都比往年多增了 <br>一个冰岛的总人口。</p>
+    </div>
+    <!--<div class="tip"><img src="images/tip.png"></div>-->
+</div>
+
+
+<div class="content-div">
+    <div class="content-wrap">
+        <p>2018年6月来了，一個月後，教育部预测将有820万高校毕业生离开校园，走向就业市场，其中还不包括海外留学生，以及在毕业季腾换工作的职场人。</p>
+        <p>不过值得庆幸的是，2018年初起，国内各大城市卷起了 <span style="background: rgb(234, 217, 126)">“人才大战”</span> ，推出了一系列优惠政策，
+            以吸引人才流入与落户。</p>
+        <p>二線城市的快速崛起也正在悄然改變著中國人才流動的“風向標”。在“人才大戰”愈演愈烈的今天，寒窗苦讀十餘載的你們，会選擇去哪一個城市築夢？</p>
+        <p>我们研究了 <span style="background: rgb(234, 217, 126)">40个省会城市</span>与<span
+                style="background: rgb(234, 217, 126)">区域经济城市</span>，其中没有发布人才新政的城市只有xx个，分别是xxx，xxx。</p>
+        <p>这些参与“人才大战”主要集中在山东半岛与京津冀城市群、泛长三角城市群以及珠三角城市群。</p>
+    </div>
+</div>
+
+<!--人才新政地图-->
+<div class="content-div">
+    <div class="content-wrap">
+        <p class="subtitle"><span>人才新政地图</span></p>
+        <p class="caption">注：<span class="highlight">“通勤距离&通勤时间”</span>：此处是指根据滴滴出行平台上打车出行数据测算的上下班通勤距离和时间，即工作日06:00-10:00和16:00-21:00期间通过滴滴顺风车和专快车来往于住宅小区和商务楼宇的订单的平均距离及时间，数据统计周期为2017年11月。
+        </p>
+    </div>
+</div>
+
+<div class="part-distance">
+    <div class="selectWrap">
+        <div class="hitDis"></div>
+        <div class="hitTime"></div>
+        <div class="byDistance">按省份</div>
+        <div class="pointerFrame">
+            <div class="pointer color2"></div>
+        </div>
+        <div class="byTime">按城市</div>
+    </div>
+</div>
+
+<!--省份地图-->
+<div id="container" style="height: 800px;width:1200px;background:transparent;margin:20px 0 0;margin: 0 auto"></div>
+
+<div class="content-div">
+    <div class="content-wrap">
+        <p>杭州在2016年率先领跑，2017年西安加足马力追赶，南京在2018年打响人才大战第一枪，最后参与进来的城市是南昌。</p>
+    </div>
+</div>
+
+
+<!--人才新政时间轴-->
+<div class="content-div">
+    <div class="content-wrap">
+        <p class="subtitle"><span>人才新政时间轴</span></p>
+    </div>
+</div>
+
+
+<!--时间轴详情-->
+<div class="time-axis-wrap">
+
+    <div class="time-axis-line" style="border-left: none;margin-top: 50px"></div>
+    <div class="time-axis-line" style="border-top: none;border-right: none"></div>
+
+    <div class="time-axis-detail" style="left: 0;top: -78px;">
+        <div class="axis-title">
+            北京
+        </div>
+
+        <img src="images/biaoji.png" alt="">
+
+        <div class="axis-time">2017.01.01</div>
+    </div>
+
+
+    <div class="time-axis-detail" style="left: 150px;top: -78px;">
+        <div class="axis-title">
+            上海
+        </div>
+
+        <img src="images/biaoji.png" alt="">
+
+        <div class="axis-time">2017.01.01</div>
+    </div>
+
+    <div class="time-axis-detail" style="left: 300px;top: -78px;">
+        <div class="axis-title">
+            上海
+        </div>
+
+        <img src="images/biaoji.png" alt="">
+
+        <div class="axis-time">2017.01.01</div>
+    </div>
+
+    <div class="time-axis-detail" style="left: 450px;top: -78px;">
+        <div class="axis-title">
+            上海
+        </div>
+
+        <img src="images/biaoji.png" alt="">
+
+        <div class="axis-time">2017.01.01</div>
+    </div>
+
+
+    <div class="time-axis-detail" style="left: 50px;top: 74px;">
+        <div class="axis-title">
+            北京
+        </div>
+
+        <img src="images/biaoji.png" alt="">
+
+        <div class="axis-time">2017.01.01</div>
+    </div>
+
+    <div class="time-axis-detail" style="left:200px;top: 74px;">
+        <div class="axis-title">
+            北京
+        </div>
+
+        <img src="images/biaoji.png" alt="">
+
+        <div class="axis-time">2017.01.01</div>
+    </div>
+
+    <div class="time-axis-detail" style="left:350px;top: 74px;">
+        <div class="axis-title">
+            北京
+        </div>
+
+        <img src="images/biaoji.png" alt="">
+
+        <div class="axis-time">2017.01.01</div>
+    </div>
+
+
+    <div class="time-axis-detail" style="left:370px;top: 225px;">
+        <div class="axis-title">
+            北京
+        </div>
+
+        <img src="images/biaoji.png" alt="">
+
+        <div class="axis-time">2017.01.01</div>
+    </div>
+
+    <div class="time-axis-detail" style="left:130px;top: 225px;">
+        <div class="axis-title">
+            北京
+        </div>
+
+        <img src="images/biaoji.png" alt="">
+
+        <div class="axis-time">2017.01.01</div>
+    </div>
+
+</div>
+
+<div class="content-div">
+    <div class="content-wrap">
+        <p>“衣食住行”，交通，生活成本与环境质量是人们最为关系的维度，这些城市在诸多方面上有相似之处。</p>
+    </div>
+</div>
+
+<!--城市对比-->
+<div class="content-div">
+    <div class="content-wrap">
+        <p class="subtitle"><span>城市对比</span></p>
+    </div>
+</div>
+
+<div class="content-div">
+    <div class="content-wrap">
+
+        <div class="chart-wrap">
+            <div class="chart">我是图表</div>
+            <div class="chart-tips">
+                GDP
+            </div>
+        </div>
+        <div class="chart-wrap">
+            <div class="chart">我是图表</div>
+            <div class="chart-tips">
+                科研
+            </div>
+        </div>
+        <div class="chart-wrap">
+            <div class="chart">我是图表</div>
+            <div class="chart-tips">
+                物价
+            </div>
+        </div>
+        <div class="chart-wrap">
+            <div class="chart">我是图表</div>
+            <div class="chart-tips">
+                可支配收入
+            </div>
+        </div>
+        <div class="chart-wrap">
+            <div class="chart">我是图表</div>
+            <div class="chart-tips">
+                常住人口
+            </div>
+        </div>
+        <div class="chart-wrap">
+            <div class="chart">我是图表</div>
+            <div class="chart-tips">
+                环境（空气质量）
+            </div>
+        </div>
+    </div>
+    <br style="clear: both">
+</div>
+<div class="content-div">
+    <div class="content-wrap">
+        <p>雖然二線城市“搶人新政”看似將門檻放的極低，如火如荼，但每個城市在制定政策的時候仍然對落戶人才有著相應的偏好。若想在落戶城市獲得較大的發展空間和較優惠的政策，不妨深入看一看哪個城市更“歡迎”你？</p>
+        <p>我们对30个已经发布了人才新政的城市的政策文本进行了文本处理，在TF-ITF算法的帮助下，我们提取并呈现了所有城市纲领性政策文本的词云。</p>
+
+    </div>
+</div>
+
+<!--词云-->
+<div class="content-div">
+    <div class="content-wrap">
+        <div class="word-wrap" style="width: 100%;height: 240px;background: #fff">
+
+        </div>
+    </div>
+</div>
+
+<div class="content-div">
+    <div class="content-wrap">
+        <p>不同城市的政策偏重点是不同的，这与诸多原因有关：城市的发展定位、经济实力、人口结构，甚至是城市决策者的履历背景有关。</p>
+    </div>
+</div>
+<!--人才新政时间轴-->
+<div class="content-div">
+    <div class="content-wrap">
+        <p class="subtitle"><span>城市政策力度对比</span></p>
+    </div>
+</div>
+<div class="content-div">
+    <div class="content-wrap">
+        <div class="btn-wrap" style="width: 100%;">
+            <div class="btn btn1" style="background-color: yellow">
+                政策强度
+            </div>
+            <div class="btn btn2">
+                人才覆盖度
+            </div>
+            <div class="btn btn3">
+                安居补贴力度
+            </div>
+            <div class="btn btn4">
+                落户政策力度
+            </div>
+            <div class="btn btn5">
+                配套保障力度
+            </div>
+        </div>
+
+        <br style="clear: both">
+
+        <div class="btn-chart-wrap">
+            <div class="btn-chart" style="z-index: 1">
+                我是图表1
+            </div>
+            <div class="btn-chart">
+                我是图表2
+            </div>
+            <div class="btn-chart">
+                我是图表3
+            </div>
+            <div class="btn-chart">
+                我是图表4
+            </div>
+            <div class="btn-chart">
+                我是图表5
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content-div">
+    <div class="content-wrap">
+        <p>
+            小秦是香港城市大学媒体与传播系的硕士生，今年毕业的她准备回国求职，不过去哪座城市工作，成为摆在她面前的一个问题。其实，对于像小秦这样的留学生来说，有一些城市会成为不错的选择，不同的城市对人才的“友好程度”也不同。</p>
+    </div>
+</div>
+
+
+<div class="content-div">
+    <div class="content-wrap">
+
+        <div class="chart-wrap">
+            <div class="chart">我是图表</div>
+            <div class="chart-tips">
+                GDP
+            </div>
+        </div>
+        <div class="chart-wrap">
+            <div class="chart">我是图表</div>
+            <div class="chart-tips">
+                科研
+            </div>
+        </div>
+        <div class="chart-wrap">
+            <div class="chart">我是图表</div>
+            <div class="chart-tips">
+                物价
+            </div>
+        </div>
+        <div class="chart-wrap">
+            <div class="chart">我是图表</div>
+            <div class="chart-tips">
+                可支配收入
+            </div>
+        </div>
+        <div class="chart-wrap">
+            <div class="chart">我是图表</div>
+            <div class="chart-tips">
+                常住人口
+            </div>
+        </div>
+        <div class="chart-wrap">
+            <div class="chart">我是图表</div>
+            <div class="chart-tips">
+                环境（空气质量）
+            </div>
+        </div>
+    </div>
+    <br style="clear: both">
+</div>
+
+<div class="content-div">
+    <div class="content-wrap">
+        <p>xxx大學xxx教授指出，（可能可以說到城市政策的制訂其實和城市本身的一些發展指標有關係…）。</p>
+        <p>我们发现，城市人才新政颁布的背后，并不是没有规律可循的。</p>
+    </div>
+</div>
+
+
+<div class="content-div">
+    <div class="content-wrap">
+        <div class="currency-chart">
+            我是通用图表
+        </div>
+    </div>
+</div>
+<div class="content-div">
+    <div class="content-wrap">
+        <p>
+            各地的人才新政究竟有多大的效力？基於2001年至2016年《》報告的XX個城市戶籍人口數目數據，看看按照正常的自然增長量2017年和2018年城市應該達到的戶籍人口數，對比已公布的部分城市2017年實際人口增長數，可見各地的一紙召令，讓無數年輕人蜂擁而至，逃離北上廣，二線城市也真正的逐漸成為了新一代年輕人築夢的廣闊天地。
+        </p>
+    </div>
+</div>
+
+<div class="content-div">
+    <div class="content-wrap">
+        <div class="currency-chart">
+            我是通用图表
+        </div>
+    </div>
+</div>
+<div class="content-div">
+    <div class="content-wrap">
+        <div class="currency-chart">
+            我是通用图表
+        </div>
+    </div>
+</div>
+
+<div class="content-div">
+    <div class="content-wrap">
+        <div class="currency-title">
+            <h2> 人们择城而居而业，</h2>
+            <h2>你呢？会在哪个城市开始你的故事？</h2>
+        </div>
+    </div>
+</div>
+<div class="content-div" style="padding-top: 0; padding-bottom: 0">
+    <div class="content-wrap">
+
+        <p>
+            <video class="video" src="images/interview.mp4" poster="images/poster.jpg" id="video1" width="100%"
+                   webkit-playsinline playsinline="true" preload="auto"></video>
+
+        </p>
+
+    </div>
+</div>
+
+
+</body>
+<script type="text/javascript">
+    var isMobile = $(window).width() > 640 ? false : true;
+
+    // var coverImageWidth = isMobile ? $(window).width() * 0.9 : $(window).height() * 0.6;
+    //
+    var coverImageWidth = 375;
+
+    $(".cover").find(".image-wrap").css("width", coverImageWidth + "px").css("height", coverImageWidth + "px")
+
+    function coverImageAnim(id) {
+        $(".cover").find(".image-wrap").find(".image").css("background-image", "url(images/cover" + id + ".png)").css("width", "10px").css("height", "10px")
+        $(".cover").find(".image-wrap").animate({"opacity": 1}, 500)
+        $(".cover").find(".image-wrap").css("left", (coverImageWidth - 10) / 2 + "px").css("top", (coverImageWidth - 10) / 2 + "px")
+        d3.select(".cover").select(".image").transition().ease("linear").duration(4000).style("width", coverImageWidth).style("height", coverImageWidth)
+        d3.select(".cover").select(".image-wrap").transition().ease("linear").duration(4000).style("left", 0).style("top", 0)
+        setTimeout(function () {
+            $(".cover").find(".image-wrap").animate({"opacity": 0}, 1000)
+        }, 5000)
+    }
+
+    function coverBgAnim(id) {
+        for (var i = 0; i < 4; i++) {
+            if (i == id) $(".cover-bg").find("img").eq(i).fadeIn(500);
+            else $(".cover-bg").find("img").eq(i).fadeOut(500);
+        }
+    }
+
+    var coverImageCount = 2;
+    coverImageAnim(1);
+    //coverBgAnim(0)
+    setInterval(function () {
+        coverImageAnim(coverImageCount % 4)
+        //coverBgAnim((coverImageCount-1)%4)
+        coverImageCount++;
+    }, 6000)
+
+    setTimeout(function () {
+        $(".cover").find(".sub-title").find("p").eq(0).fadeIn(1000)
+    }, 500);
+    setTimeout(function () {
+        $(".cover").find(".sub-title").find("p").eq(1).fadeIn(1000)
+    }, 1500);
+    setTimeout(function () {
+        $(".cover").find(".sub-title").find("p").eq(2).fadeIn(1000)
+    }, 2500);
+    setTimeout(function () {
+        $(".cover").find(".sub-title").find("p").eq(3).fadeIn(1000)
+    }, 3500);
+    setTimeout(function () {
+        $(".cover").find(".sub-title").find("p").eq(4).fadeIn(1000)
+    }, 4500);
+    setTimeout(function () {
+        $(".cover").find(".sub-title").find("p").eq(5).fadeIn(1000)
+    }, 5500);
+    setTimeout(function () {
+        $(".cover").find(".tip").fadeIn(1000)
+    }, 4000);
+
+
+    //按省市切换按钮
+    //省份
+    $(".byDistance, .hitDis").click(function () {
+        //按钮切换
+        $(".pointer").animate({left: 0}, 500).removeClass("color1").addClass("color2")
+        // $(".timeAxis").animate({opacity: 0}, 500);
+        // $(".disAxis").animate({opacity: 1}, 500);
+
+        $("#container").animate({opacity: 1}, 500)
+
+    });
+
+    $(".byTime, .hitTime").click(function () {
+
+        //按钮切换
+        $(".pointer").animate({left: 30}, 500).removeClass("color2").addClass("color1")
+        // $(".timeAxis").animate({opacity: 1}, 500);
+        // $(".disAxis").animate({opacity: 0}, 500);
+
+        //地图切换
+        $("#container").animate({opacity: 0}, 500)
+
+    });
+
+
+    $('.btn').click(function () {
+        console.log('z-index', $(this).index());
+
+        //索引值赋值
+        var btnIndex = $(this).index();
+        //清空按钮点击效果
+        $('.btn').each(function (i) {
+            $(this).css("background-color", "transparent");
+        });
+        //点击增加效果
+        $(this).css("background-color", "yellow");
+
+        //重置图表层
+        $('.btn-chart-wrap').find('.btn-chart').each(function (i) {
+            $(this).css("z-index", "0");
+        });
+        //根据索引值查询要变化的图表并赋值
+        $('.btn-chart-wrap').find('.btn-chart').eq(btnIndex).css("z-index", "1")
+
+    });
+
+
+    //视频播放
+    $("#video1").click(function () {
+        if (document.getElementById("video1").paused) {
+            //console.log("play")
+            document.getElementById("video1").play();
+            document.getElementById("video1").controls = "controls"
+        }
+        else {
+            //console.log("pause")
+            document.getElementById("video1").pause()
+
+        }
+    });
+
+</script>
+<script type="text/javascript">
+    // 全国省份列表
+    var dataMap = [{name: '北京'}, {name: '天津'}, {name: '上海'}, {name: '重庆'}, {name: '河北'}, {name: '河南'}, {name: '云南'}, {name: '辽宁'}, {name: '黑龙江'}, {name: '湖南'}, {name: '安徽'}, {name: '山东'},
+        {name: '新疆'}, {name: '江苏'}, {name: '浙江'}, {name: '江西'}, {name: '湖北'}, {name: '广西'}, {name: '甘肃'}, {name: '山西'}, {name: '内蒙古'}, {name: '陕西'}, {name: '吉林'}, {name: '福建'}, {name: '贵州'},
+        {name: '广东'}, {name: '青海'}, {name: '西藏'}, {name: '四川'}, {name: '宁夏'}, {name: '海南'}, {name: '台湾'}, {name: '香港'}, {name: '澳门'}]
+    // 需要在页面上直接标记出来的城市
+    var specialMap = ['浙江', '云南', '陕西'];
+    // 对dataMap进行处理，使其可以直接在页面上展示
+    for (var i = 0; i < specialMap.length; i++) {
+        for (var j = 0; j < dataMap.length; j++) {
+            if (specialMap[i] == dataMap[j].name) {
+                dataMap[j].selected = true;
+                break;
+            }
+
+        }
+    }
+    // 绘制图表，准备数据
+    var option = {
+        tooltip: {
+            formatter: function (params) {
+                var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">这里可以写一些，想展示在页面上的别的信息</p>'
+                return info;
+            },
+            backgroundColor: "#ff7f50",//提示标签背景颜色
+            textStyle: {color: "#fff"} //提示标签字体颜色
+        },
+        series: [
+            {
+                name: '中国',
+                type: 'map',
+                mapType: 'china',
+                selectedMode: 'multiple',
+                label: {
+                    normal: {
+                        show: true,//显示省份标签
+                        // textStyle:{color:"#c71585"}//省份标签字体颜色
+                    },
+                    emphasis: {
+                        show: true,//对应的鼠标悬浮效果
+                        // textStyle:{color:"#800080"}
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        borderWidth: .5,//区域边框宽度
+                        // borderColor: '#009fe8',//区域边框颜色
+                        // areaColor:"#ffefd5",//区域颜色
+                    },
+                    emphasis: {
+                        borderWidth: .5,
+                        borderColor: '#4b0082',
+                        areaColor: "#ffdead",
+                    }
+                },
+                data: dataMap
+            }
+        ]
+    };
+    //初始化echarts实例
+    var myChart = echarts.init(document.getElementById('container'));
+    //使用制定的配置项和数据显示图表
+    myChart.setOption(option);
+</script>
+</html>
