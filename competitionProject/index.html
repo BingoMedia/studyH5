@@ -1,10 +1,12 @@
 <html>
 <head>
+    <title>人才新政</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
     <meta content="telephone=no" name="format-detection"/>
     <meta content="email=no" name="format-detection"/>
-    <title>人才新政</title>
+    <link rel="shortcut icon" href="images/logo.ico">
+
     <script src="js/jquery.js" language="javascript"></script>
     <script src="js/d3.min.js" language="javascript"></script>
     <script src="js/didi.js" language="javascript"></script>
@@ -56,10 +58,14 @@
 
 
 <div class="cover">
-    <div class="image-wrap">
-        <div class="image">
-        </div>
+   <!-- <div class="image-wrap">
+        <div class="image"></div>
+    </div>-->
+
+    <div class="img-wrap animation">
+        <img src="images/logo.jpeg" alt="" width="375" height="375">
     </div>
+
     <div class="title">
         <p style="font-size:60px;">
             <span style="font-size:48px;">逃离“</span><span>北上广</span><span
@@ -471,36 +477,36 @@
 
     // var coverImageWidth = isMobile ? $(window).width() * 0.9 : $(window).height() * 0.6;
     //
-    var coverImageWidth = 375;
-
-    $(".cover").find(".image-wrap").css("width", coverImageWidth + "px").css("height", coverImageWidth + "px")
-
-    function coverImageAnim(id) {
-        $(".cover").find(".image-wrap").find(".image").css("background-image", "url(images/cover" + id + ".png)").css("width", "10px").css("height", "10px")
-        $(".cover").find(".image-wrap").animate({"opacity": 1}, 500)
-        $(".cover").find(".image-wrap").css("left", (coverImageWidth - 10) / 2 + "px").css("top", (coverImageWidth - 10) / 2 + "px")
-        d3.select(".cover").select(".image").transition().ease("linear").duration(4000).style("width", coverImageWidth).style("height", coverImageWidth)
-        d3.select(".cover").select(".image-wrap").transition().ease("linear").duration(4000).style("left", 0).style("top", 0)
-        setTimeout(function () {
-            $(".cover").find(".image-wrap").animate({"opacity": 0}, 1000)
-        }, 5000)
-    }
-
-    function coverBgAnim(id) {
-        for (var i = 0; i < 4; i++) {
-            if (i == id) $(".cover-bg").find("img").eq(i).fadeIn(500);
-            else $(".cover-bg").find("img").eq(i).fadeOut(500);
-        }
-    }
-
-    var coverImageCount = 2;
-    coverImageAnim(1);
-    //coverBgAnim(0)
-    setInterval(function () {
-        coverImageAnim(coverImageCount % 4)
-        //coverBgAnim((coverImageCount-1)%4)
-        coverImageCount++;
-    }, 6000)
+    // var coverImageWidth = 375;
+    //
+    // $(".cover").find(".image-wrap").css("width", coverImageWidth + "px").css("height", coverImageWidth + "px")
+    //
+    // function coverImageAnim(id) {
+    //     $(".cover").find(".image-wrap").find(".image").css("background-image", "url(images/cover" + id + ".png)").css("width", "10px").css("height", "10px")
+    //     $(".cover").find(".image-wrap").animate({"opacity": 1}, 500)
+    //     $(".cover").find(".image-wrap").css("left", (coverImageWidth - 10) / 2 + "px").css("top", (coverImageWidth - 10) / 2 + "px")
+    //     d3.select(".cover").select(".image").transition().ease("linear").duration(4000).style("width", coverImageWidth).style("height", coverImageWidth)
+    //     d3.select(".cover").select(".image-wrap").transition().ease("linear").duration(4000).style("left", 0).style("top", 0)
+    //     setTimeout(function () {
+    //         $(".cover").find(".image-wrap").animate({"opacity": 0}, 1000)
+    //     }, 5000)
+    // }
+    //
+    // function coverBgAnim(id) {
+    //     for (var i = 0; i < 4; i++) {
+    //         if (i == id) $(".cover-bg").find("img").eq(i).fadeIn(500);
+    //         else $(".cover-bg").find("img").eq(i).fadeOut(500);
+    //     }
+    // }
+    //
+    // var coverImageCount = 2;
+    // coverImageAnim(1);
+    // //coverBgAnim(0)
+    // setInterval(function () {
+    //     coverImageAnim(coverImageCount % 4)
+    //     //coverBgAnim((coverImageCount-1)%4)
+    //     coverImageCount++;
+    // }, 6000)
 
     setTimeout(function () {
         $(".cover").find(".sub-title").find("p").eq(0).fadeIn(1000)

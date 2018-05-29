@@ -75,7 +75,55 @@ ul, li {
     width: 375px;
     height: 375px;
     margin: 0 auto;
-    margin-top: 20px
+    margin-top: 20px;
+    background: red;
+}
+
+/*新的logo显示*/
+.cover .img-wrap {
+    position: relative;
+    width: 375px;
+    height: 375px;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    -webkit-transform: scale(0));
+    -ms-transform: scale(0);
+    transform: scale(0);
+}
+
+.animation {
+    /* infinite*/
+    -webkit-animation: image 6s infinite forwards;
+    animation: image 6s infinite forwards;
+}
+
+@-webkit-keyframes image {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@-moz-keyframes image {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes image {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 .cover .tip {
