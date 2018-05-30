@@ -1,0 +1,179 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta content="email=no" name="format-detection"/>
+    <title>财新｜你的城市有多大？</title>
+    <script src="js/jquery.js" language="javascript"></script>
+    <script src="js/d3.min.js" language="javascript"></script>
+    <script src="js/didi.js" language="javascript"></script>
+    <script src="js/jquery.color.js" language="javascript"></script>
+    <script src="js/echarts.min.js"></script>
+    <script src="js/china.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <style>
+        body {
+            font-size: 16px;
+            font-family: arial, "Microsoft YaHei", 微软雅黑;
+            color: #000;
+            background: #fff;
+            background-image: url(images/bg.jpg);
+            background-repeat: repeat;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        .cx-logo {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 56px;
+            height: 40px;
+            background-image: url(images/caixin.png);
+            z-index: 999
+        }
+
+        .cover .image {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 600px;
+            background-image: url("images/cover1.png");
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+        }
+    </style>
+
+</head>
+
+<body>
+<div class="content-div">
+    <div class="content-wrap">
+        <p class="subtitle"><span>出行半径、通勤距离&时间前十位</span></p>
+    </div>
+</div>
+<div class="part-top10">
+    <ul>
+
+    </ul>
+
+</div>
+</body>
+<script type="text/javascript">
+
+
+    //前十名排名Chart
+    var top10 = [
+        ["<img src='images/icon_Radius.png'", "北京", "上海", "深圳", "佛山", "广州", "成都", "杭州", "东莞", "天津", "大连"],
+        ["<img src='images/icon_Distance.png'", "北京", "东莞", "深圳", "佛山", "武汉", "上海", "重庆", "广州", "南京", "中山"],
+        ["<img src='images/icon_Time.png'", "北京", "东莞", "深圳", "重庆", "武汉", "成都", "广州", "上海", "佛山", "汕头"]
+    ];
+    var topLine1 = [];
+    var topLine2 = [];
+    var top10RowHeight = 50;
+    var ul = $("<ul></ul>")
+    $(".part-top10").append(ul)
+    for (var i = 0; i < 11; i++) {
+        if (i == 0) $(".part-top10").find("ul").eq(0).addClass("rank").append("<li></li>")
+        else $(".part-top10").find("ul").eq(0).addClass("rank").append("<li>" + i + "</li>")
+    }
+    for (var col = 0; col < 3; col++) {
+        var ul = $("<ul></ul>")
+        $(".part-top10").append(ul)
+        $(".part-top10").find("ul").eq(col + 1).addClass("col" + (col + 1))
+        for (var i = 0; i < 11; i++) {
+            if (i > 0) var li = $(".part-top10").find("ul").eq(col + 1).append("<li class='topCity'><span class='topCityAll topCity-" + top10[col][i] + "'>" + top10[col][i] + "</span></li>")
+            else li = $(".part-top10").find("ul").eq(col + 1).append("<li>" + top10[col][i] + "</li>")
+
+        }
+    }
+
+    var svgTop10 = d3.select(".part-top10")
+        .append("svg")
+        .attr("width", "100%")
+        .attr("height", "100%")
+        .style("position", "absolute")
+        .style("top", 0)
+        .style("left", 0)
+        .style("z-index", -1)
+
+    for (var i = 1; i < 11; i++) {
+        var array = [i];
+        var city = top10[0][i];
+
+        for (var j = 1; j < 11; j++) {
+            if (top10[1][j] == city) {
+                array.push(j);
+            }
+        }
+        if (array.length > 1) topLine1.push([array, city])
+    }
+
+    for (var i = 1; i < 11; i++) {
+        var array = [i];
+        var city = top10[1][i];
+
+        for (var j = 1; j < 11; j++) {
+            if (top10[2][j] == city) {
+                array.push(j);
+            }
+        }
+        if (array.length > 1) topLine2.push([array, city])
+    }
+
+
+    var lineTop1 = d3.svg.line()
+        .x(function (d, i) {
+           return (i + 1) * 162 + 60 - 81 + (i == 0 ? 20 : -20);
+        })
+        .y(function (d, i) {
+            return d * top10RowHeight + 10
+        });
+
+    var lineTop2 = d3.svg.line()
+        .x(function (d, i) {
+           return (i + 2) * 162 + 60 - 81 + (i == 0 ? 20 : -20);
+        })
+        .y(function (d, i) {
+            return d * top10RowHeight + 10
+        });
+
+    for (var i = 0; i < topLine1.length; i++) {
+        svgTop10.append("path")
+            .attr("d", lineTop1(topLine1[i][0]))
+            .attr("class", "topLineAll topLine-" + topLine1[i][1])
+            .attr("stroke", "#cbcbcb")
+            .attr("stroke-width", 7)
+            .style("fill", "none")
+            .style("opacity", 0)
+    }
+    for (var i = 0; i < topLine2.length; i++) {
+        svgTop10.append("path")
+            .attr("d", lineTop2(topLine2[i][0]))
+            .attr("class", "topLineAll topLine-" + topLine2[i][1])
+            .attr("stroke", "#cbcbcb")
+            .attr("stroke-width", 7)
+            .style("fill", "none")
+            .style("opacity", 0)
+    }
+
+    $(".part-top10").find(".topCity").bind("mouseover", function () {
+        $(".topCityAll").removeClass("chosen");
+        d3.selectAll(".topLineAll").style("opacity", 0);
+
+        var city = $(this).find("span").html();
+        $(".topCity-" + city).addClass("chosen");
+        d3.selectAll(".topLine-" + city).style("opacity", 1);
+        if (top10Init == 0) {
+            $(".topCity-东莞").removeClass("chosen");
+            d3.selectAll(".topLine-东莞").style("opacity", 0);
+            top10Init = 1
+        }
+    });
+    var top10Init = 0;
+    $(".topCity-东莞").addClass("chosen");
+    d3.selectAll(".topLine-东莞").style("opacity", 1);
+
+</script>
+</html>

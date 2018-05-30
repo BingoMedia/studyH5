@@ -260,7 +260,7 @@ ul, li {
 .time-axis-wrap {
     position: relative;
     width: 640px;
-    height: 400px;
+    /*height: 400px;*/
     margin: 0 auto;
 
 }
