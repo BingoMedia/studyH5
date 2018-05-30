@@ -727,7 +727,7 @@
             var flagValue = 0;
             var flagCity = "";
             var flagID = 0;
-            var random = Math.random()
+            var random = Math.random();
             for (var j = 0; j < dataset.length; j++) {
                 if (dataset[j][attr] + rdm[j] > flagValue && dataset[j][attr] + rdm[j] < maxValue) {
                     flagValue = dataset[j][attr] + rdm[j];
@@ -748,7 +748,7 @@
     var svg1 = d3.select(".part-radius")
         .append("svg")
         .attr("width", maxWIDTH)
-        .attr("height", maxHEIGHT)
+        .attr("height", maxHEIGHT);
 
 
     //var eachAngle = 2 * Math.PI / Data_radius.length

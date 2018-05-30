@@ -48,7 +48,7 @@ ul, li {
 
 .cover .title {
     color: #4f4d46;
-    font-size: 3.2em;
+    font-size: 2.8em;
     padding-top: 40px;
     padding-left: 20px;
     font-weight: 900;
@@ -276,6 +276,7 @@ ul, li {
     position: absolute;
     width: 100px;
     text-align: center;
+    display: none;
 
 }
 
@@ -301,17 +302,19 @@ ul, li {
 }
 
 .content-wrap .chart-wrap:nth-of-type(even) {
-    float: left;
+    float: right;
+
 }
 
 .content-wrap .chart-wrap:nth-of-type(odd) {
-    float: right;
+    float: left;
 }
 
 .content-wrap .chart-wrap .chart {
     width: 100%;
     height: 180px;
     border: 1px solid #d5d5d5;
+    box-sizing: border-box;
 }
 
 .content-wrap .chart-wrap .chart-tips {
@@ -370,7 +373,7 @@ ul, li {
 }
 
 .video-play {
-    background-image: url(images/video-button.png);
+    background-image: url(images/vigdeo-button.png);
     width: 100%;
     height: 100%;
     z-index: 99;
