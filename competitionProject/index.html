@@ -355,9 +355,14 @@
         <p class="subtitle"><span>城市对比</span></p>
     </div>
 </div>
+<div class="part-top10">
+    <ul>
 
+    </ul>
 
-<div class="content-div">
+</div>
+
+<!--<div class="content-div">
     <div class="content-wrap">
 
         <div class="chart-wrap">
@@ -399,7 +404,7 @@
         </div>
     </div>
     <br style="clear: both">
-</div>
+</div>-->
 <div class="content-div">
     <div class="content-wrap">
         <p>雖然二線城市“搶人新政”看似將門檻放的極低，如火如荼，但每個城市在制定政策的時候仍然對落戶人才有著相應的偏好。若想在落戶城市獲得較大的發展空間和較優惠的政策，不妨深入看一看哪個城市更“歡迎”你？</p>
@@ -429,6 +434,12 @@
     </div>
 </div>
 <div class="content-div">
+    <div class="content-wrap">
+        <div id="zhengceChart" class="zhengceChart"></div>
+    </div>
+</div>
+
+<!--<div class="content-div">
     <div class="content-wrap">
         <div class="btn-wrap" style="width: 100%;">
             <div class="btn btn1" style="background-color: yellow">
@@ -468,7 +479,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
 
 <div class="content-div">
     <div class="content-wrap">
@@ -647,450 +658,454 @@
     })
     ;
 
-    // gdpChart   GDP图表
-    // 基于准备好的dom，初始化echarts实例
-    var gdpChart = echarts.init(document.getElementById('gdpChart'));
-    // 指定图表的配置项和数据
-    var gdpOption = {
-        title: {
-            text: 'GDP'
-        },
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: {            // 坐标轴指示器，坐标轴触发有效
-                type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-            }
-        },
-        grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-        },
-        legend: {
-            data: ['GDP']
-        },
-        xAxis: {
-            data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
-        },
-        yAxis: {},
-        series: [{
-            name: 'GDP',
-            type: 'bar',
-            barWidth: '60%',
-            data: [5, 20, 36, 10, 10, 20]
-        }]
-    };
-
-    // scienceChart   科研图表
-    // 基于准备好的dom，初始化echarts实例
-    var scienceChart = echarts.init(document.getElementById('scienceChart'));
-    // 科研图表 指定图表的配置项和数据
-    var scienceOption = {
-        title: {
-            text: '科研'
-        },
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: {            // 坐标轴指示器，坐标轴触发有效
-                type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-            }
-        },
-        grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-        },
-        legend: {
-            data: ['科研']
-        },
-
-        xAxis: [
-            {
-                type: 'category',
-                data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"],
-                axisTick: {
-                    alignWithLabel: true
-                }
-            }
-        ],
-        // yAxis : [
-        //     {
-        //         type : 'value'
-        //     }
-        // ],
-        // xAxis: {
-        //     data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
-        // },
-        yAxis: {},
-        series: [{
-            name: '科研',
-            type: 'bar',
-            barWidth: '60%',
-            data: [25, 10, 50, 30, 10, 20]
-        }]
-    };
-
+    // // gdpChart   GDP图表
+    // // 基于准备好的dom，初始化echarts实例
+    // var gdpChart = echarts.init(document.getElementById('gdpChart'));
+    // // 指定图表的配置项和数据
+    // var gdpOption = {
+    //     title: {
+    //         text: 'GDP'
+    //     },
+    //     tooltip: {
+    //         trigger: 'axis',
+    //         axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+    //             type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+    //         }
+    //     },
+    //     grid: {
+    //         left: '3%',
+    //         right: '4%',
+    //         bottom: '3%',
+    //         containLabel: true
+    //     },
+    //     legend: {
+    //         data: ['GDP']
+    //     },
+    //     xAxis: {
+    //         data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+    //     },
+    //     yAxis: {},
+    //     series: [{
+    //         name: 'GDP',
+    //         type: 'bar',
+    //         barWidth: '60%',
+    //         data: [5, 20, 36, 10, 10, 20]
+    //     }]
+    // };
+    //
+    // // scienceChart   科研图表
+    // // 基于准备好的dom，初始化echarts实例
+    // var scienceChart = echarts.init(document.getElementById('scienceChart'));
+    // // 科研图表 指定图表的配置项和数据
+    // var scienceOption = {
+    //     title: {
+    //         text: '科研'
+    //     },
+    //     tooltip: {
+    //         trigger: 'axis',
+    //         axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+    //             type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+    //         }
+    //     },
+    //     grid: {
+    //         left: '3%',
+    //         right: '4%',
+    //         bottom: '3%',
+    //         containLabel: true
+    //     },
+    //     legend: {
+    //         data: ['科研']
+    //     },
+    //
+    //     xAxis: [
+    //         {
+    //             type: 'category',
+    //             data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"],
+    //             axisTick: {
+    //                 alignWithLabel: true
+    //             }
+    //         }
+    //     ],
+    //     // yAxis : [
+    //     //     {
+    //     //         type : 'value'
+    //     //     }
+    //     // ],
+    //     // xAxis: {
+    //     //     data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+    //     // },
+    //     yAxis: {},
+    //     series: [{
+    //         name: '科研',
+    //         type: 'bar',
+    //         barWidth: '60%',
+    //         data: [25, 10, 50, 30, 10, 20]
+    //     }]
+    // };
+    //
+    // //
     //
     <!--priceChart 物价图表-->
-    // 基于准备好的dom，初始化echarts实例
-    var priceChart = echarts.init(document.getElementById('priceChart'));
-    // 指定图表的配置项和数据
-    var priceOption = {
-        title: {
-            text: '物价'
-        },
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: {            // 坐标轴指示器，坐标轴触发有效
-                type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-            }
-        },
-        grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-        },
-        legend: {
-            data: ['物价']
-        },
-        xAxis: {
-            data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高鞋", "袜子"]
-        },
-        yAxis: {},
-        series: [{
-            name: '物价',
-            type: 'bar',
-            barWidth: '60%',
-            data: [25, 10, 50, 30, 10, 20]
-        }]
-    };
-
+    // // 基于准备好的dom，初始化echarts实例
+    // var priceChart = echarts.init(document.getElementById('priceChart'));
+    // // 指定图表的配置项和数据
+    // var priceOption = {
+    //     title: {
+    //         text: '物价'
+    //     },
+    //     tooltip: {
+    //         trigger: 'axis',
+    //         axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+    //             type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+    //         }
+    //     },
+    //     grid: {
+    //         left: '3%',
+    //         right: '4%',
+    //         bottom: '3%',
+    //         containLabel: true
+    //     },
+    //     legend: {
+    //         data: ['物价']
+    //     },
+    //     xAxis: {
+    //         data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高鞋", "袜子"]
+    //     },
+    //     yAxis: {},
+    //     series: [{
+    //         name: '物价',
+    //         type: 'bar',
+    //         barWidth: '60%',
+    //         data: [25, 10, 50, 30, 10, 20]
+    //     }]
+    // };
+    //
+    // //
     //
     <!--incomeChart 收入图表-->
-    // 基于准备好的dom，初始化echarts实例
-    var incomeChart = echarts.init(document.getElementById('incomeChart'));
-    // 指定图表的配置项和数据
-    var incomeOption = {
-        title: {
-            text: '收入'
-        },
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: {            // 坐标轴指示器，坐标轴触发有效
-                type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-            }
-        },
-        grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-        },
-        legend: {
-            data: ['收入']
-        },
-        xAxis: {
-            data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
-        },
-        yAxis: {},
-        series: [{
-            name: '收入',
-            type: 'bar',
-            barWidth: '60%',
-            data: [25, 10, 50, 30, 10, 20]
-        }]
-    };
-
+    // // 基于准备好的dom，初始化echarts实例
+    // var incomeChart = echarts.init(document.getElementById('incomeChart'));
+    // // 指定图表的配置项和数据
+    // var incomeOption = {
+    //     title: {
+    //         text: '收入'
+    //     },
+    //     tooltip: {
+    //         trigger: 'axis',
+    //         axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+    //             type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+    //         }
+    //     },
+    //     grid: {
+    //         left: '3%',
+    //         right: '4%',
+    //         bottom: '3%',
+    //         containLabel: true
+    //     },
+    //     legend: {
+    //         data: ['收入']
+    //     },
+    //     xAxis: {
+    //         data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+    //     },
+    //     yAxis: {},
+    //     series: [{
+    //         name: '收入',
+    //         type: 'bar',
+    //         barWidth: '60%',
+    //         data: [25, 10, 50, 30, 10, 20]
+    //     }]
+    // };
+    //
+    // //
     //
     <!--peopleChart 收入图表-->
-    // 基于准备好的dom，初始化echarts实例
-    var peopleChart = echarts.init(document.getElementById('peopleChart'));
-    // 指定图表的配置项和数据
-    var peopleOption = {
-        title: {
-            text: '常住人口'
-        },
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: {            // 坐标轴指示器，坐标轴触发有效
-                type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-            }
-        },
-        grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-        },
-        legend: {
-            data: ['常住人口']
-        },
-        xAxis: {
-            data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
-        },
-        yAxis: {},
-        series: [{
-            name: '常住人口',
-            type: 'bar',
-            barWidth: '60%',
-            data: [25, 10, 50, 30, 10, 20]
-        }]
-    };
-
+    // // 基于准备好的dom，初始化echarts实例
+    // var peopleChart = echarts.init(document.getElementById('peopleChart'));
+    // // 指定图表的配置项和数据
+    // var peopleOption = {
+    //     title: {
+    //         text: '常住人口'
+    //     },
+    //     tooltip: {
+    //         trigger: 'axis',
+    //         axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+    //             type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+    //         }
+    //     },
+    //     grid: {
+    //         left: '3%',
+    //         right: '4%',
+    //         bottom: '3%',
+    //         containLabel: true
+    //     },
+    //     legend: {
+    //         data: ['常住人口']
+    //     },
+    //     xAxis: {
+    //         data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+    //     },
+    //     yAxis: {},
+    //     series: [{
+    //         name: '常住人口',
+    //         type: 'bar',
+    //         barWidth: '60%',
+    //         data: [25, 10, 50, 30, 10, 20]
+    //     }]
+    // };
+    //
+    // //
     //
     <!--peopleChart 收入图表-->
-    // 基于准备好的dom，初始化echarts实例
-    var envirChart = echarts.init(document.getElementById('envirChart'));
-    // 指定图表的配置项和数据
-    var envirOption = {
-        title: {
-            text: '环境'
-        },
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: {            // 坐标轴指示器，坐标轴触发有效
-                type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-            }
-        },
-        grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-        },
-        legend: {
-            data: ['环境（空气质量）']
-        },
-        xAxis: {
-            data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
-        },
-        yAxis: {},
-        series: [{
-            name: '环境（空气质量）',
-            type: 'bar',
-            barWidth: '60%',
-            data: [25, 10, 50, 30, 10, 20]
-        }]
-    };
+    // // 基于准备好的dom，初始化echarts实例
+    // var envirChart = echarts.init(document.getElementById('envirChart'));
+    // // 指定图表的配置项和数据
+    // var envirOption = {
+    //     title: {
+    //         text: '环境'
+    //     },
+    //     tooltip: {
+    //         trigger: 'axis',
+    //         axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+    //             type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+    //         }
+    //     },
+    //     grid: {
+    //         left: '3%',
+    //         right: '4%',
+    //         bottom: '3%',
+    //         containLabel: true
+    //     },
+    //     legend: {
+    //         data: ['环境（空气质量）']
+    //     },
+    //     xAxis: {
+    //         data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+    //     },
+    //     yAxis: {},
+    //     series: [{
+    //         name: '环境（空气质量）',
+    //         type: 'bar',
+    //         barWidth: '60%',
+    //         data: [25, 10, 50, 30, 10, 20]
+    //     }]
+    // };
 
 
     //policy  政策强度
     // 基于准备好的dom，初始化echarts实例
-    var policyChart = echarts.init(document.getElementById('policyChart'));
-    // 指定图表的配置项和数据
-    var policyOption = {
-        title: {
-            text: '政策强度'
-        },
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: {            // 坐标轴指示器，坐标轴触发有效
-                type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-            }
-        },
-        grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-        },
-        legend: {
-            data: ['政策强度']
-        },
-        xAxis: {
-            data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
-        },
-        yAxis: {},
-        series: [{
-            name: '政策强度',
-            type: 'bar',
-            barWidth: '60%',
-            data: [25, 10, 50, 30, 10, 20]
-        }]
-    };
-
-
-    //  人才覆盖度
-    // 基于准备好的dom，初始化echarts实例
-    var talentChart = echarts.init(document.getElementById('talentChart'));
-    // 指定图表的配置项和数据
-    var talentOption = {
-        title: {
-            text: '人才覆盖度'
-        },
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: {            // 坐标轴指示器，坐标轴触发有效
-                type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-            }
-        },
-        grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-        },
-        legend: {
-            data: ['人才覆盖度']
-        },
-        xAxis: {
-            data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
-        },
-        yAxis: {},
-        series: [{
-            name: '人才覆盖度',
-            type: 'bar',
-            barWidth: '60%',
-            data: [25, 10, 50, 30, 10, 20]
-        }]
-    };
-
-    //  安居补贴力度
-    // 基于准备好的dom，初始化echarts实例
-    var settleChart = echarts.init(document.getElementById('settleChart'));
-    // 指定图表的配置项和数据
-    var settleOption = {
-        title: {
-            text: '安居补贴力度'
-        },
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: {            // 坐标轴指示器，坐标轴触发有效
-                type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-            }
-        },
-        grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-        },
-        legend: {
-            data: ['安居补贴力度']
-        },
-        xAxis: {
-            data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
-        },
-        yAxis: {},
-        series: [{
-            name: '安居补贴力度',
-            type: 'bar',
-            barWidth: '60%',
-            data: [25, 10, 50, 30, 10, 20]
-        }]
-    };
-
-
-    //  落户政策力度
-    // 基于准备好的dom，初始化echarts实例
-    var settlementChart = echarts.init(document.getElementById('settlementChart'));
-    // 指定图表的配置项和数据
-    var settlementOption = {
-        title: {
-            text: '落户政策力度'
-        },
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: {            // 坐标轴指示器，坐标轴触发有效
-                type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-            }
-        },
-        grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-        },
-        legend: {
-            data: ['落户政策力度']
-        },
-        xAxis: {
-            data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
-        },
-        yAxis: {},
-        series: [{
-            name: '落户政策力度',
-            type: 'bar',
-            barWidth: '60%',
-            data: [25, 10, 50, 30, 10, 20]
-        }]
-    };
-
-
-    // 配套保障力度
-    // 基于准备好的dom，初始化echarts实例
-    var supportChart = echarts.init(document.getElementById('supportChart'));
-    // 指定图表的配置项和数据
-    var supportOption = {
-        title: {
-            text: '配套保障力度'
-        },
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: {            // 坐标轴指示器，坐标轴触发有效
-                type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-            }
-        },
-        grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-        },
-        legend: {
-            data: ['配套保障力度']
-        },
-        xAxis: {
-            data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
-        },
-        yAxis: {},
-        series: [{
-            name: '配套保障力度',
-            type: 'bar',
-            barWidth: '60%',
-            data: [25, 10, 50, 30, 10, 20]
-        }]
-    };
-
-
-    // 配套保障力度
-    // 基于准备好的dom，初始化echarts实例
-    var cityChart = echarts.init(document.getElementById('cityChart'));
-    // 指定图表的配置项和数据
-    var cityOption = {
-        title: {
-            text: '配套保障力度'
-        },
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: {            // 坐标轴指示器，坐标轴触发有效
-                type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-            }
-        },
-        grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-        },
-        legend: {
-            data: ['配套保障力度']
-        },
-        xAxis: {
-            data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
-        },
-        yAxis: {},
-        series: [{
-            name: '配套保障力度',
-            type: 'bar',
-            barWidth: '60%',
-            data: [25, 10, 50, 30, 10, 20]
-        }]
-    };
-    cityChart.setOption(cityOption);
+    // var policyChart = echarts.init(document.getElementById('policyChart'));
+    // // 指定图表的配置项和数据
+    // var policyOption = {
+    //     title: {
+    //         text: '政策强度'
+    //     },
+    //     tooltip: {
+    //         trigger: 'axis',
+    //         axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+    //             type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+    //         }
+    //     },
+    //     grid: {
+    //         left: '3%',
+    //         right: '4%',
+    //         bottom: '3%',
+    //         containLabel: true
+    //     },
+    //     legend: {
+    //         data: ['政策强度']
+    //     },
+    //     xAxis: {
+    //         data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+    //     },
+    //     yAxis: {},
+    //     series: [{
+    //         name: '政策强度',
+    //         type: 'bar',
+    //         barWidth: '60%',
+    //         data: [25, 10, 50, 30, 10, 20]
+    //     }]
+    // };
+    //
+    //
+    // //  人才覆盖度
+    // // 基于准备好的dom，初始化echarts实例
+    // var talentChart = echarts.init(document.getElementById('talentChart'));
+    // // 指定图表的配置项和数据
+    // var talentOption = {
+    //     title: {
+    //         text: '人才覆盖度'
+    //     },
+    //     tooltip: {
+    //         trigger: 'axis',
+    //         axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+    //             type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+    //         }
+    //     },
+    //     grid: {
+    //         left: '3%',
+    //         right: '4%',
+    //         bottom: '3%',
+    //         containLabel: true
+    //     },
+    //     legend: {
+    //         data: ['人才覆盖度']
+    //     },
+    //     xAxis: {
+    //         data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+    //     },
+    //     yAxis: {},
+    //     series: [{
+    //         name: '人才覆盖度',
+    //         type: 'bar',
+    //         barWidth: '60%',
+    //         data: [25, 10, 50, 30, 10, 20]
+    //     }]
+    // };
+    //
+    // //  安居补贴力度
+    // // 基于准备好的dom，初始化echarts实例
+    // var settleChart = echarts.init(document.getElementById('settleChart'));
+    // // 指定图表的配置项和数据
+    // var settleOption = {
+    //     title: {
+    //         text: '安居补贴力度'
+    //     },
+    //     tooltip: {
+    //         trigger: 'axis',
+    //         axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+    //             type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+    //         }
+    //     },
+    //     grid: {
+    //         left: '3%',
+    //         right: '4%',
+    //         bottom: '3%',
+    //         containLabel: true
+    //     },
+    //     legend: {
+    //         data: ['安居补贴力度']
+    //     },
+    //     xAxis: {
+    //         data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+    //     },
+    //     yAxis: {},
+    //     series: [{
+    //         name: '安居补贴力度',
+    //         type: 'bar',
+    //         barWidth: '60%',
+    //         data: [25, 10, 50, 30, 10, 20]
+    //     }]
+    // };
+    //
+    //
+    // //  落户政策力度
+    // // 基于准备好的dom，初始化echarts实例
+    // var settlementChart = echarts.init(document.getElementById('settlementChart'));
+    // // 指定图表的配置项和数据
+    // var settlementOption = {
+    //     title: {
+    //         text: '落户政策力度'
+    //     },
+    //     tooltip: {
+    //         trigger: 'axis',
+    //         axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+    //             type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+    //         }
+    //     },
+    //     grid: {
+    //         left: '3%',
+    //         right: '4%',
+    //         bottom: '3%',
+    //         containLabel: true
+    //     },
+    //     legend: {
+    //         data: ['落户政策力度']
+    //     },
+    //     xAxis: {
+    //         data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+    //     },
+    //     yAxis: {},
+    //     series: [{
+    //         name: '落户政策力度',
+    //         type: 'bar',
+    //         barWidth: '60%',
+    //         data: [25, 10, 50, 30, 10, 20]
+    //     }]
+    // };
+    //
+    //
+    // // 配套保障力度
+    // // 基于准备好的dom，初始化echarts实例
+    // var supportChart = echarts.init(document.getElementById('supportChart'));
+    // // 指定图表的配置项和数据
+    // var supportOption = {
+    //     title: {
+    //         text: '配套保障力度'
+    //     },
+    //     tooltip: {
+    //         trigger: 'axis',
+    //         axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+    //             type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+    //         }
+    //     },
+    //     grid: {
+    //         left: '3%',
+    //         right: '4%',
+    //         bottom: '3%',
+    //         containLabel: true
+    //     },
+    //     legend: {
+    //         data: ['配套保障力度']
+    //     },
+    //     xAxis: {
+    //         data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+    //     },
+    //     yAxis: {},
+    //     series: [{
+    //         name: '配套保障力度',
+    //         type: 'bar',
+    //         barWidth: '60%',
+    //         data: [25, 10, 50, 30, 10, 20]
+    //     }]
+    // };
+    //
+    //
+    // // 配套保障力度
+    // // 基于准备好的dom，初始化echarts实例
+    // var cityChart = echarts.init(document.getElementById('cityChart'));
+    // // 指定图表的配置项和数据
+    // var cityOption = {
+    //     title: {
+    //         text: '配套保障力度'
+    //     },
+    //     tooltip: {
+    //         trigger: 'axis',
+    //         axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+    //             type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+    //         }
+    //     },
+    //     grid: {
+    //         left: '3%',
+    //         right: '4%',
+    //         bottom: '3%',
+    //         containLabel: true
+    //     },
+    //     legend: {
+    //         data: ['配套保障力度']
+    //     },
+    //     xAxis: {
+    //         data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+    //     },
+    //     yAxis: {},
+    //     series: [{
+    //         name: '配套保障力度',
+    //         type: 'bar',
+    //         barWidth: '60%',
+    //         data: [25, 10, 50, 30, 10, 20]
+    //     }]
+    // };
+    // cityChart.setOption(cityOption);
 
 
     //按省市切换按钮
@@ -1138,23 +1153,23 @@
         $('.btn-chart-wrap').find('.btn-chart').eq(btnIndex).css("z-index", "1");
 
 
-        switch ($(this).index()) {
-            case 1:
-                talentChart.setOption(talentOption);
-                break;
-            case 2:
-                settleChart.setOption(settleOption);
-                break;
-            case 3:
-                settlementChart.setOption(settlementOption);
-                break;
-            case 4:
-                supportChart.setOption(supportOption);
-                break;
-            default:
-                policyChart.setOption(policyOption);
-
-        }
+        // switch ($(this).index()) {
+        //     case 1:
+        //         talentChart.setOption(talentOption);
+        //         break;
+        //     case 2:
+        //         settleChart.setOption(settleOption);
+        //         break;
+        //     case 3:
+        //         settlementChart.setOption(settlementOption);
+        //         break;
+        //     case 4:
+        //         supportChart.setOption(supportOption);
+        //         break;
+        //     default:
+        //         policyChart.setOption(policyOption);
+        //
+        // }
 
     });
 
@@ -1181,28 +1196,28 @@
             });
         }
 
-        if (top > 2500) {
-            // 使用刚指定的配置项和数据显示图表。
-            gdpChart.setOption(gdpOption);
-            scienceChart.setOption(scienceOption);
-        }
-
-        if (top > 2771) {
-            // 使用刚指定的配置项和数据显示图表。
-            priceChart.setOption(priceOption);
-            incomeChart.setOption(incomeOption);
-
-        }
-
-        if (top > 3000) {
-            // 使用刚指定的配置项和数据显示图表。
-            peopleChart.setOption(peopleOption);
-            envirChart.setOption(envirOption);
-        }
-        if (top > 4150) {
-            // 使用刚指定的配置项和数据显示图表。
-            policyChart.setOption(policyOption);
-        }
+        // if (top > 2500) {
+        //     // 使用刚指定的配置项和数据显示图表。
+        //     gdpChart.setOption(gdpOption);
+        //     scienceChart.setOption(scienceOption);
+        // }
+        //
+        // if (top > 2771) {
+        //     // 使用刚指定的配置项和数据显示图表。
+        //     priceChart.setOption(priceOption);
+        //     incomeChart.setOption(incomeOption);
+        //
+        // }
+        //
+        // if (top > 3000) {
+        //     // 使用刚指定的配置项和数据显示图表。
+        //     peopleChart.setOption(peopleOption);
+        //     envirChart.setOption(envirOption);
+        // }
+        // if (top > 4150) {
+        //     // 使用刚指定的配置项和数据显示图表。
+        //     policyChart.setOption(policyOption);
+        // }
 
     });
 
@@ -1223,6 +1238,434 @@
 
 </script>
 
+
+<!---->
+<script type="text/javascript">
+    //前24名排名Chart
+    var top10 = [
+        ["GDP", "天津", "重庆", "成都", "武汉", "杭州", "南京", "长沙", "郑州", "济南", "合肥", "西安", "福州", "哈尔滨", "长春", "石家庄", "沈阳", "鄂尔多斯", "南昌", "厦门", "呼和浩特", "太原", "珠海", "银川", "海口"],
+        ["科研潜力", "西安", "武汉", "天津", "成都", "重庆", "南京", "沈阳", "郑州", "合肥", "太原", "长春", "哈尔滨", "杭州", "厦门", "济南", "南昌", "长沙", "石家庄", "珠海", "福州", "海口", "呼和浩特", "鄂尔多斯", "银川"],
+        ["购买力", "珠海", "成都", "武汉", "杭州", "南京", "长沙", "沈阳", "济南", "福州", "哈尔滨", "西安", "郑州", "石家庄", "长春", "合肥", "重庆", "南昌", "太原", "呼和浩特", "天津", "厦门", "鄂尔多斯", "海口", "银川"],
+        ["收入水平", "杭州", "南京", "长沙", "珠海", "厦门", "武汉", "济南", "天津", "鄂尔多斯", "呼和浩特", "成都", "福州", "沈阳", "合肥", "郑州", "西安", "南昌", "哈尔滨", "太原", "长春", "海口", "石家庄", "银川", "重庆"],
+        ["常住人口", "重庆", "成都", "天津", "石家庄", "武汉", "郑州", "哈尔滨", "杭州", "西安", "沈阳", "南京", "合肥", "长沙", "福州", "长春", "济南", "南昌", "太原", "厦门", "呼和浩特", "海口", "银川", "鄂尔多斯", "珠海"],
+        ["空气质量", "海口", "鄂尔多斯", "厦门", "福州", "珠海", "南昌", "南京", "呼和浩特", "杭州", "重庆", "银川", "长春", "沈阳", "武汉", "长沙", "成都", "合肥", "哈尔滨", "天津", "太原", "济南", "郑州", "西安", "石家庄"],
+    ];
+
+
+    var topLine1 = [];
+    var topLine2 = [];
+    var topLine3 = [];
+    var topLine4 = [];
+    var topLine5 = [];
+
+    var top10RowHeight = 37;
+    var ul = $("<ul></ul>");
+    $(".part-top10").append(ul);
+    for (var i = 0; i < 25; i++) {
+        if (i == 0) $(".part-top10").find("ul").eq(0).addClass("rank").append("<li></li>");
+        else $(".part-top10").find("ul").eq(0).addClass("rank").append("<li>" + i + "</li>")
+    }
+    for (var col = 0; col < 6; col++) {
+        var ul = $("<ul></ul>");
+        $(".part-top10").append(ul);
+        $(".part-top10").find("ul").eq(col + 1).addClass("col" + (col + 1));
+        for (var i = 0; i < 25; i++) {
+            if (i > 0) var li = $(".part-top10").find("ul").eq(col + 1).append("<li class='topCity'><span class='topCityAll topCity-" + top10[col][i] + "'>" + top10[col][i] + "</span></li>")
+            else li = $(".part-top10").find("ul").eq(col + 1).append("<li>" + top10[col][i] + "</li>")
+
+        }
+    }
+
+    var svgTop10 = d3.select(".part-top10")
+        .append("svg")
+        .attr("width", "100%")
+        .attr("height", "100%")
+        .style("position", "absolute")
+        .style("top", 0)
+        .style("left", 0)
+        .style("z-index", -1);
+
+    for (var i = 1; i < 25; i++) {
+        var array = [i];
+        var city = top10[0][i];
+
+        for (var j = 1; j < 25; j++) {
+            if (top10[1][j] == city) {
+                array.push(j);
+            }
+        }
+        if (array.length > 1) topLine1.push([array, city])
+    }
+    // var matrix3x3x3x3x3 = [];
+    // for (var i = 0; i < matrix3x3x3x3x3.length; i++) {
+    //     alert(1);
+    //     for (var j = 0; j < matrix3x3x3x3x3[i].length; j++) {
+    //         for (var z = 0; z < matrix3x3x3x3x3[i][j].length; z++) {
+    //             for (var k = 0; k < matrix3x3x3x3x3[i][j][z].length; k++) {
+    //                 for (var s = 0; s < matrix3x3x3x3x3[i][j][z][k].length; s++) {
+    //                     matrix3x3x3x3x3[i][j][z][k][s] = i + j + z + k + s;
+    //                     console.log(matrix3x3x3x3x3[i][j][z][k][s]);
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+    // var matrix3x3x3 = [];
+    // for (var i = 0; i < matrix3x3x3.length; i++) {
+    //     for (var j = 0; j < matrix3x3x3[i].length; j++) {
+    //         for (var z = 0; z < matrix3x3x3[i][j].length; z++) {
+    //             console.log(i + j + z);
+    //         }
+    //     }
+    // }
+    for (var i = 1; i < 25; i++) {
+        var array = [i];
+        var city = top10[1][i];
+
+        for (var j = 1; j < 25; j++) {
+            if (top10[2][j] == city) {
+                array.push(j);
+            }
+        }
+        if (array.length > 1) topLine2.push([array, city])
+    }
+    for (var i = 1; i < 25; i++) {
+        var array = [i];
+        var city = top10[2][i];
+
+        for (var j = 1; j < 25; j++) {
+            if (top10[3][j] == city) {
+                array.push(j);
+            }
+        }
+        if (array.length > 1) topLine3.push([array, city])
+    }
+    for (var i = 1; i < 25; i++) {
+        var array = [i];
+        var city = top10[3][i];
+
+        for (var j = 1; j < 25; j++) {
+            if (top10[4][j] == city) {
+                array.push(j);
+            }
+        }
+        if (array.length > 1) topLine4.push([array, city])
+    }
+    for (var i = 1; i < 25; i++) {
+        var array = [i];
+        var city = top10[4][i];
+
+        for (var j = 1; j < 25; j++) {
+            if (top10[5][j] == city) {
+                array.push(j);
+            }
+        }
+        if (array.length > 1) topLine5.push([array, city])
+    }
+
+    var lineTop1 = d3.svg.line()
+        .x(function (d, i) {
+            return (i + 1) * 91 + 60 - 81 + (i == 0 ? 20 : -20);
+        })
+        .y(function (d, i) {
+            return d * top10RowHeight + 10
+        });
+
+    var lineTop2 = d3.svg.line()
+        .x(function (d, i) {
+            return (i + 2) * 91 + 60 - 81 + (i == 0 ? 20 : -20);
+        })
+        .y(function (d, i) {
+            return d * top10RowHeight + 10
+        });
+    var lineTop3 = d3.svg.line()
+        .x(function (d, i) {
+            return (i + 3) * 91 + 60 - 81 + (i == 0 ? 20 : -20);
+        })
+        .y(function (d, i) {
+            return d * top10RowHeight + 10
+        });
+    var lineTop4 = d3.svg.line()
+        .x(function (d, i) {
+            return (i + 4) * 91 + 60 - 81 + (i == 0 ? 20 : -20);
+        })
+        .y(function (d, i) {
+            return d * top10RowHeight + 10
+        });
+    var lineTop5 = d3.svg.line()
+        .x(function (d, i) {
+            return (i + 5) * 91 + 60 - 81 + (i == 0 ? 20 : -20);
+        })
+        .y(function (d, i) {
+            return d * top10RowHeight + 10
+        });
+
+    for (var i = 0; i < topLine1.length; i++) {
+        svgTop10.append("path")
+            .attr("d", lineTop1(topLine1[i][0]))
+            .attr("class", "topLineAll topLine-" + topLine1[i][1])
+            .attr("stroke", "#cbcbcb")
+            .attr("stroke-width", 7)
+            .style("fill", "none")
+            .style("opacity", 0)
+    }
+    for (var i = 0; i < topLine2.length; i++) {
+        svgTop10.append("path")
+            .attr("d", lineTop2(topLine2[i][0]))
+            .attr("class", "topLineAll topLine-" + topLine2[i][1])
+            .attr("stroke", "#cbcbcb")
+            .attr("stroke-width", 7)
+            .style("fill", "none")
+            .style("opacity", 0)
+    }
+    for (var i = 0; i < topLine3.length; i++) {
+        svgTop10.append("path")
+            .attr("d", lineTop3(topLine3[i][0]))
+            .attr("class", "topLineAll topLine-" + topLine3[i][1])
+            .attr("stroke", "#cbcbcb")
+            .attr("stroke-width", 7)
+            .style("fill", "none")
+            .style("opacity", 0)
+    }
+    for (var i = 0; i < topLine4.length; i++) {
+        svgTop10.append("path")
+            .attr("d", lineTop4(topLine4[i][0]))
+            .attr("class", "topLineAll topLine-" + topLine4[i][1])
+            .attr("stroke", "#cbcbcb")
+            .attr("stroke-width", 7)
+            .style("fill", "none")
+            .style("opacity", 0)
+    }
+    for (var i = 0; i < topLine5.length; i++) {
+        svgTop10.append("path")
+            .attr("d", lineTop5(topLine5[i][0]))
+            .attr("class", "topLineAll topLine-" + topLine5[i][1])
+            .attr("stroke", "#cbcbcb")
+            .attr("stroke-width", 7)
+            .style("fill", "none")
+            .style("opacity", 0)
+    }
+
+
+    $(".part-top10").find(".topCity").bind("mouseover", function () {
+        $(".topCityAll").removeClass("chosen");
+        d3.selectAll(".topLineAll").style("opacity", 0);
+
+        var city = $(this).find("span").html();
+        $(".topCity-" + city).addClass("chosen");
+        d3.selectAll(".topLine-" + city).style("opacity", 1);
+        if (top10Init == 0) {
+            $(".topCity-天津").removeClass("chosen");
+            d3.selectAll(".topLine-天津").style("opacity", 0);
+            top10Init = 1
+        }
+        if (top10Init == 1) {
+            $(".topCity-天津").removeClass("chosen");
+            d3.selectAll(".topLine-天津").style("opacity", 0);
+            top10Init = 2
+        }
+    });
+    var top10Init = 0;
+    $(".topCity-天津").addClass("chosen");
+    d3.selectAll(".topLine-天津").style("opacity", 1);
+</script>
+
+<script type="text/javascript">
+    var days = ['配套保障', '落户政策力度', '安居补贴力度', '人才覆盖度', '政策强度'];
+
+    var hours = [
+        "天津", "重庆", "成都",
+        "武汉", "杭州", "南京",
+        "长沙", "郑州", "济南",
+        "合肥", "西安", "福州",
+
+        "哈尔滨", "长春", "石家庄",
+        "沈阳", "鄂尔多斯", "南昌",
+        "厦门", "呼和浩特", "太原",
+        "珠海", "银川", "海口"
+    ];
+    var data = [
+        [4, 0, 14],
+        [4, 1, 14],
+        [4, 2, 13],
+        [4, 3, 17],
+        [4, 4, 16],
+        [4, 5, 16],
+        [4, 6, 14],
+        [4, 7, 13],
+        [4, 8, 17],
+        [4, 9, 18],
+        [4, 10, 13],
+        [4, 11, 17],
+        [4, 12, 10],
+        [4, 13, 17],
+        [4, 14, 14],
+        [4, 15, 13],
+        [4, 16, 20],
+        [4, 17, 9],
+        [4, 18, 10],
+        [4, 19, 22],
+        [4, 20, 22],
+        [4, 21, 12],
+        [4, 22, 22],
+        [4, 23, 16],
+
+        [3, 0, 2],
+        [3, 1, 1],
+        [3, 2, 3],
+        [3, 3, 2],
+        [3, 4, 2],
+        [3, 5, 3],
+        [3, 6, 4],
+        [3, 7, 3],
+        [3, 8, 3],
+        [3, 9, 3],
+        [3, 10, 3],
+        [3, 11, 2],
+        [3, 12, 1],
+        [3, 13, 2],
+        [3, 14, 3],
+        [3, 15, 3],
+        [3, 16, 1],
+        [3, 17, 4],
+        [3, 18, 2],
+        [3, 19, 2],
+        [3, 20, 2],
+        [3, 21, 3],
+        [3, 22, 4], [1, 23, 2],
+
+        [2, 0, 8],
+        [2, 1, 10],
+        [2, 2, 6],
+        [2, 3, 10],
+        [2, 4, 11],
+        [2, 5, 9],
+        [2, 6, 7],
+        [2, 7, 6],
+        [2, 8, 10],
+        [2, 9, 10],
+        [2, 10, 8],
+        [2, 11, 11],
+        [2, 12, 4],
+        [2, 13, 10],
+        [2, 14, 8],
+        [2, 15, 7],
+        [2, 16, 10],
+        [2, 17, 4],
+        [2, 18, 5],
+        [2, 19, 13],
+        [2, 20, 12],
+        [2, 21, 5],
+        [2, 22, 12],
+        [2, 23, 9],
+
+        [1, 0, 4],
+        [1, 1, 4],
+        [1, 2, 2],
+        [1, 3, 4],
+        [1, 4, 4],
+        [1, 5, 0],
+        [1, 6, 5],
+        [1, 7, 1],
+        [1, 8, 6],
+        [1, 9, 6],
+        [1, 10, 3],
+        [1, 11, 3],
+        [1, 12, 4],
+        [1, 13, 4],
+        [1, 14, 0],
+        [1, 15, 12],
+        [1, 16, 9],
+        [1, 17, 5],
+        [1, 18, 2],
+        [1, 19, 6],
+        [1, 20, 6],
+        [1, 21, 0],
+        [1, 22, 0],
+        [1, 23, 5],
+
+        [0, 0, 4],
+        [0, 1, 7],
+        [0, 2, 6],
+        [0, 3, 4],
+        [0, 4, 3],
+        [0, 5, 4],
+        [0, 6, 5],
+        [0, 7, 5],
+        [0, 8, 5],
+        [0, 9, 4],
+        [0, 10, 2],
+        [0, 11, 4],
+        [0, 12, 3],
+        [0, 13, 4],
+        [0, 14, 3],
+        [0, 15, 4],
+        [0, 16, 6],
+        [0, 17, 4],
+        [0, 18, 4],
+        [0, 19, 6],
+        [0, 20, 6],
+        [0, 21, 5],
+        [0, 22, 6],
+        [0, 23, 4],
+    ];
+
+    // 基于准备好的dom，初始化echarts实例
+    var zhengceChart = echarts.init(document.getElementById('zhengceChart'));
+    // 指定图表的配置项和数据
+    var zhengceOption = {
+        title: {
+            text: '城市政策力度对比',
+            // link: 'https://github.com/pissang/echarts-next/graphs/punch-card'
+        },
+        legend: {
+            data: ['Punch Card'],
+            left: 'right'
+        },
+        polar: {},
+        tooltip: {
+            formatter: function (params) {
+                return params.value[2] + ' commits in ' + hours[params.value[1]] + ' of ' + days[params.value[0]];
+            }
+        },
+        angleAxis: {
+            type: 'category',
+            data: hours,
+            boundaryGap: false,
+            splitLine: {
+                show: true,
+                lineStyle: {
+                    color: '#ddd',
+                    type: 'dashed'
+                }
+            },
+            axisLine: {
+                show: false
+            }
+        },
+        radiusAxis: {
+            type: 'category',
+            data: days,
+            axisLine: {
+                show: false
+            },
+            axisLabel: {
+                rotate: 45
+            }
+        },
+        series: [{
+            name: 'Punch Card',
+            type: 'scatter',
+            coordinateSystem: 'polar',
+            symbolSize: function (val) {
+                return val[2] * 2;
+            },
+            data: data
+        }]
+    };
+
+    zhengceChart.setOption(zhengceOption);
+</script>
 
 <script type="text/javascript">
     // 全国省份列表

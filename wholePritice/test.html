@@ -12,6 +12,7 @@
     <script src="js/echarts.min.js"></script>
     <script src="js/china.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+
     <style>
         body {
             font-size: 16px;
@@ -43,6 +44,74 @@
             background-position: 50% 50%;
             background-repeat: no-repeat;
         }
+
+        .part-top10 {
+            width: 600px;
+            height: 930px;
+            position: relative;
+            margin: 0 auto;
+            overflow: hidden;
+            text-align: center;
+
+            /*padding-left: 27px;*/
+            /*padding-top: 10px;*/
+        }
+
+        .part-top10 ul {
+            width: 15.5%;
+            float: left;
+        }
+
+        .part-top10 ul.rank {
+            width: 3%;
+            float: left;
+        }
+
+        .part-top10 li {
+            height: 37px
+        }
+
+        .part-top10 li span {
+            padding: 3px 13px;
+            border-radius: 13px
+        }
+
+        .part-top10 ul.rank li {
+            height: 33px;
+            padding-top: 4px;
+            color: #999;
+            text-align: right;
+        }
+
+        .part-top10 ul.col1 .chosen {
+            background-color: #574182;
+            color: #fff
+        }
+
+        .part-top10 ul.col2 .chosen {
+            background-color: #a785ea;
+            color: #fff
+        }
+
+        .part-top10 ul.col3 .chosen {
+            background-color: #dea137;
+            color: #fff
+        }
+
+        .part-top10 ul.col4 .chosen {
+            background-color: #574182;
+            color: #fff
+        }
+
+        .part-top10 ul.col5 .chosen {
+            background-color: #a785ea;
+            color: #fff
+        }
+
+        .part-top10 ul.col6 .chosen {
+            background-color: #dea137;
+            color: #fff
+        }
     </style>
 
 </head>
@@ -65,24 +134,31 @@
 
     //前十名排名Chart
     var top10 = [
-        ["<img src='images/icon_Radius.png'", "北京", "上海", "深圳", "佛山", "广州", "成都", "杭州", "东莞", "天津", "大连"],
-        ["<img src='images/icon_Distance.png'", "北京", "东莞", "深圳", "佛山", "武汉", "上海", "重庆", "广州", "南京", "中山"],
-        ["<img src='images/icon_Time.png'", "北京", "东莞", "深圳", "重庆", "武汉", "成都", "广州", "上海", "佛山", "汕头"]
+        ["GDP", "天津", "重庆", "成都", "武汉", "杭州", "南京", "长沙", "郑州", "济南", "合肥", "西安", "福州", "哈尔滨", "长春", "石家庄", "沈阳", "鄂尔多斯", "南昌", "厦门", "呼和浩特", "太原", "珠海", "银川", "海口"],
+        ["科研", "西安", "武汉", "天津", "成都", "重庆", "南京", "沈阳", "郑州", "合肥", "太原", "长春", "哈尔滨", "杭州", "厦门", "济南", "南昌", "长沙", "石家庄", "珠海", "福州", "海口", "呼和浩特", "鄂尔多斯", "银川"],
+        ["物价", "珠海", "成都", "武汉", "杭州", "南京", "长沙", "沈阳", "济南", "福州", "哈尔滨", "西安", "郑州", "石家庄", "长春", "合肥", "重庆", "南昌", "太原", "呼和浩特", "天津", "厦门", "鄂尔多斯", "海口", "银川"],
+        ["可支配收入", "杭州", "南京", "长沙", "珠海", "厦门", "武汉", "济南", "天津", "鄂尔多斯", "呼和浩特", "成都", "福州", "沈阳", "合肥", "郑州", "西安", "南昌", "哈尔滨", "太原", "长春", "海口", "石家庄", "银川", "重庆"],
+        ["常驻人口", "重庆", "成都", "天津", "石家庄", "武汉", "郑州", "哈尔滨", "杭州", "西安", "沈阳", "南京", "合肥", "长沙", "福州", "长春", "济南", "南昌", "太原", "厦门", "呼和浩特", "海口", "银川", "鄂尔多斯", "珠海"],
+        ["空气质量", "石家庄", "西安", "郑州", "济南", "太原", "天津", "哈尔滨", "合肥", "成都", "长沙", "武汉", "沈阳", "长春", "银川", "重庆", "杭州", "呼和浩特", "南京", "南昌", "珠海", "福州", "厦门", "鄂尔多斯", "海口"],
     ];
     var topLine1 = [];
     var topLine2 = [];
-    var top10RowHeight = 50;
-    var ul = $("<ul></ul>")
-    $(".part-top10").append(ul)
-    for (var i = 0; i < 11; i++) {
-        if (i == 0) $(".part-top10").find("ul").eq(0).addClass("rank").append("<li></li>")
+    var topLine3 = [];
+    var topLine4 = [];
+    var topLine5 = [];
+
+    var top10RowHeight = 37;
+    var ul = $("<ul></ul>");
+    $(".part-top10").append(ul);
+    for (var i = 0; i < 25; i++) {
+        if (i == 0) $(".part-top10").find("ul").eq(0).addClass("rank").append("<li></li>");
         else $(".part-top10").find("ul").eq(0).addClass("rank").append("<li>" + i + "</li>")
     }
-    for (var col = 0; col < 3; col++) {
-        var ul = $("<ul></ul>")
-        $(".part-top10").append(ul)
-        $(".part-top10").find("ul").eq(col + 1).addClass("col" + (col + 1))
-        for (var i = 0; i < 11; i++) {
+    for (var col = 0; col < 6; col++) {
+        var ul = $("<ul></ul>");
+        $(".part-top10").append(ul);
+        $(".part-top10").find("ul").eq(col + 1).addClass("col" + (col + 1));
+        for (var i = 0; i < 25; i++) {
             if (i > 0) var li = $(".part-top10").find("ul").eq(col + 1).append("<li class='topCity'><span class='topCityAll topCity-" + top10[col][i] + "'>" + top10[col][i] + "</span></li>")
             else li = $(".part-top10").find("ul").eq(col + 1).append("<li>" + top10[col][i] + "</li>")
 
@@ -96,36 +172,92 @@
         .style("position", "absolute")
         .style("top", 0)
         .style("left", 0)
-        .style("z-index", -1)
+        .style("z-index", -1);
 
-    for (var i = 1; i < 11; i++) {
+    for (var i = 1; i < 25; i++) {
         var array = [i];
         var city = top10[0][i];
 
-        for (var j = 1; j < 11; j++) {
+        for (var j = 1; j < 25; j++) {
             if (top10[1][j] == city) {
                 array.push(j);
             }
         }
         if (array.length > 1) topLine1.push([array, city])
     }
-
-    for (var i = 1; i < 11; i++) {
+    // var matrix3x3x3x3x3 = [];
+    // for (var i = 0; i < matrix3x3x3x3x3.length; i++) {
+    //     alert(1);
+    //     for (var j = 0; j < matrix3x3x3x3x3[i].length; j++) {
+    //         for (var z = 0; z < matrix3x3x3x3x3[i][j].length; z++) {
+    //             for (var k = 0; k < matrix3x3x3x3x3[i][j][z].length; k++) {
+    //                 for (var s = 0; s < matrix3x3x3x3x3[i][j][z][k].length; s++) {
+    //                     matrix3x3x3x3x3[i][j][z][k][s] = i + j + z + k + s;
+    //                     console.log(matrix3x3x3x3x3[i][j][z][k][s]);
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+    // var matrix3x3x3 = [];
+    // for (var i = 0; i < matrix3x3x3.length; i++) {
+    //     for (var j = 0; j < matrix3x3x3[i].length; j++) {
+    //         for (var z = 0; z < matrix3x3x3[i][j].length; z++) {
+    //             console.log(i + j + z);
+    //         }
+    //     }
+    // }
+    for (var i = 1; i < 25; i++) {
         var array = [i];
         var city = top10[1][i];
 
-        for (var j = 1; j < 11; j++) {
+        for (var j = 1; j < 25; j++) {
             if (top10[2][j] == city) {
                 array.push(j);
             }
         }
         if (array.length > 1) topLine2.push([array, city])
     }
+    for (var i = 1; i < 25; i++) {
+        var array = [i];
+        var city = top10[2][i];
 
+        for (var j = 1; j < 25; j++) {
+            if (top10[3][j] == city) {
+                array.push(j);
+            }
+        }
+        if (array.length > 1) topLine3.push([array, city])
+    }
+    for (var i = 1; i < 25; i++) {
+        var array = [i];
+        var city = top10[3][i];
+
+        for (var j = 1; j < 25; j++) {
+            if (top10[4][j] == city) {
+                array.push(j);
+            }
+        }
+        if (array.length > 1) topLine4.push([array, city])
+    }
+    for (var i = 1; i < 25; i++) {
+        var array = [i];
+        var city = top10[4][i];
+
+        for (var j = 1; j < 25; j++) {
+            if (top10[5][j] == city) {
+                array.push(j);
+            }
+        }
+        if (array.length > 1) topLine5.push([array, city])
+    }
 
     var lineTop1 = d3.svg.line()
         .x(function (d, i) {
-           return (i + 1) * 162 + 60 - 81 + (i == 0 ? 20 : -20);
+            console.log('i', i);
+            console.log('d', d);
+            console.log('(i + 1) * 162 + 60 - 81 + (i == 0 ? 20 : -20)', (i + 1) * 162 + 60 - 81 + (i == 0 ? 20 : -20))
+            return (i + 1) * 91 + 60 - 81 + (i == 0 ? 20 : -20);
         })
         .y(function (d, i) {
             return d * top10RowHeight + 10
@@ -133,7 +265,31 @@
 
     var lineTop2 = d3.svg.line()
         .x(function (d, i) {
-           return (i + 2) * 162 + 60 - 81 + (i == 0 ? 20 : -20);
+            // console.log('i',i);
+            // console.log('d',d);
+            // console.log('(i + 2) * 162 + 60 - 81 + (i == 0 ? 20 : -20)',(i + 2) * 162 + 60 - 81 + (i == 0 ? 20 : -20))
+            return (i + 2) * 91 + 60 - 81 + (i == 0 ? 20 : -20);
+        })
+        .y(function (d, i) {
+            return d * top10RowHeight + 10
+        });
+    var lineTop3 = d3.svg.line()
+        .x(function (d, i) {
+            return (i + 3) * 91 + 60 - 81 + (i == 0 ? 20 : -20);
+        })
+        .y(function (d, i) {
+            return d * top10RowHeight + 10
+        });
+    var lineTop4 = d3.svg.line()
+        .x(function (d, i) {
+            return (i + 4) * 91 + 60 - 81 + (i == 0 ? 20 : -20);
+        })
+        .y(function (d, i) {
+            return d * top10RowHeight + 10
+        });
+    var lineTop5 = d3.svg.line()
+        .x(function (d, i) {
+            return (i + 5) * 91 + 60 - 81 + (i == 0 ? 20 : -20);
         })
         .y(function (d, i) {
             return d * top10RowHeight + 10
@@ -157,6 +313,34 @@
             .style("fill", "none")
             .style("opacity", 0)
     }
+    for (var i = 0; i < topLine3.length; i++) {
+        svgTop10.append("path")
+            .attr("d", lineTop3(topLine3[i][0]))
+            .attr("class", "topLineAll topLine-" + topLine3[i][1])
+            .attr("stroke", "#cbcbcb")
+            .attr("stroke-width", 7)
+            .style("fill", "none")
+            .style("opacity", 0)
+    }
+    for (var i = 0; i < topLine4.length; i++) {
+        svgTop10.append("path")
+            .attr("d", lineTop4(topLine4[i][0]))
+            .attr("class", "topLineAll topLine-" + topLine4[i][1])
+            .attr("stroke", "#cbcbcb")
+            .attr("stroke-width", 7)
+            .style("fill", "none")
+            .style("opacity", 0)
+    }
+    for (var i = 0; i < topLine5.length; i++) {
+        svgTop10.append("path")
+            .attr("d", lineTop5(topLine5[i][0]))
+            .attr("class", "topLineAll topLine-" + topLine5[i][1])
+            .attr("stroke", "#cbcbcb")
+            .attr("stroke-width", 7)
+            .style("fill", "none")
+            .style("opacity", 0)
+    }
+
 
     $(".part-top10").find(".topCity").bind("mouseover", function () {
         $(".topCityAll").removeClass("chosen");
@@ -169,6 +353,11 @@
             $(".topCity-东莞").removeClass("chosen");
             d3.selectAll(".topLine-东莞").style("opacity", 0);
             top10Init = 1
+        }
+        if (top10Init == 1) {
+            $(".topCity-东莞").removeClass("chosen");
+            d3.selectAll(".topLine-东莞").style("opacity", 0);
+            top10Init = 2
         }
     });
     var top10Init = 0;

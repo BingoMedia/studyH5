@@ -325,6 +325,10 @@ ul, li {
 .content-wrap .btn-wrap {
 
 }
+.content-wrap .zhengceChart {
+    width: 640px;
+    height: 640px;
+}
 
 .content-wrap .btn-wrap .btn {
     box-sizing: border-box;
@@ -381,6 +385,84 @@ ul, li {
     left: 0;
     top: 0;
 }
+
+
+
+
+
+/*
+城市对比
+*/
+
+.part-top10 {
+    width: 600px;
+    height: 930px;
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+    text-align: center;
+
+    /*padding-left: 27px;*/
+    /*padding-top: 10px;*/
+}
+
+.part-top10 ul {
+    width: 15.5%;
+    float: left;
+}
+
+.part-top10 ul.rank {
+    width: 3%;
+    float: left;
+}
+
+.part-top10 li {
+    height: 37px
+}
+
+.part-top10 li span {
+    padding: 3px 13px;
+    border-radius: 13px
+}
+
+.part-top10 ul.rank li {
+    height: 33px;
+    padding-top: 4px;
+    color: #999;
+    text-align: right;
+}
+
+.part-top10 ul.col1 .chosen {
+    background-color: #574182;
+    color: #fff
+}
+
+.part-top10 ul.col2 .chosen {
+    background-color: #a785ea;
+    color: #fff
+}
+
+.part-top10 ul.col3 .chosen {
+    background-color: #dea137;
+    color: #fff
+}
+
+.part-top10 ul.col4 .chosen {
+    background-color: #574182;
+    color: #fff
+}
+
+.part-top10 ul.col5 .chosen {
+    background-color: #a785ea;
+    color: #fff
+}
+
+.part-top10 ul.col6 .chosen {
+    background-color: #dea137;
+    color: #fff
+}
+
+
 
 @media (max-width: 640px) {
 

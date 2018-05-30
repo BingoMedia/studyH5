@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        html body #aaaChart {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="aaaChart" style="height: 800px;width:1200px;background:transparent;margin:20px 0 0;margin: 0 auto"></div>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/echarts.min.js"></script>
+<script>
+    var days = ['配套保障', '落户政策力度', '安居补贴力度', '人才覆盖度', '政策强度'];
+
+    var hours = [
+        "天津", "重庆", "成都",
+        "武汉", "杭州", "南京",
+        "长沙", "郑州", "济南",
+        "合肥", "西安", "福州",
+
+        "哈尔滨", "长春", "石家庄",
+        "沈阳", "鄂尔多斯", "南昌",
+        "厦门", "呼和浩特", "太原",
+        "珠海", "银川", "海口"
+    ];
+    var data = [
+        [4, 0, 14],
+        [4, 1, 14],
+        [4, 2, 13],
+        [4, 3, 17],
+        [4, 4, 16],
+        [4, 5, 16],
+        [4, 6, 14],
+        [4, 7, 13],
+        [4, 8, 17],
+        [4, 9, 18],
+        [4, 10, 13],
+        [4, 11, 17],
+        [4, 12, 10],
+        [4, 13, 17],
+        [4, 14, 14],
+        [4, 15, 13],
+        [4, 16, 20],
+        [4, 17, 9],
+        [4, 18, 10],
+        [4, 19, 22],
+        [4, 20, 22],
+        [4, 21, 12],
+        [4, 22, 22],
+        [4, 23, 16],
+
+        [3, 0, 2],
+        [3, 1, 1],
+        [3, 2, 3],
+        [3, 3, 2],
+        [3, 4, 2],
+        [3, 5, 3],
+        [3, 6, 4],
+        [3, 7, 3],
+        [3, 8, 3],
+        [3, 9, 3],
+        [3, 10, 3],
+        [3, 11, 2],
+        [3, 12, 1],
+        [3, 13, 2],
+        [3, 14, 3],
+        [3, 15, 3],
+        [3, 16, 1],
+        [3, 17, 4],
+        [3, 18, 2],
+        [3, 19, 2],
+        [3, 20, 2],
+        [3, 21, 3],
+        [3, 22, 4], [1, 23, 2],
+
+        [2, 0, 8],
+        [2, 1, 10],
+        [2, 2, 6],
+        [2, 3, 10],
+        [2, 4, 11],
+        [2, 5, 9],
+        [2, 6, 7],
+        [2, 7, 6],
+        [2, 8, 10],
+        [2, 9, 10],
+        [2, 10, 8],
+        [2, 11, 11],
+        [2, 12, 4],
+        [2, 13, 10],
+        [2, 14, 8],
+        [2, 15, 7],
+        [2, 16, 10],
+        [2, 17, 4],
+        [2, 18, 5],
+        [2, 19, 13],
+        [2, 20, 12],
+        [2, 21, 5],
+        [2, 22, 12],
+        [2, 23, 9],
+
+        [1, 0, 4],
+        [1, 1, 4],
+        [1, 2, 2],
+        [1, 3, 4],
+        [1, 4, 4],
+        [1, 5, 0],
+        [1, 6, 5],
+        [1, 7, 1],
+        [1, 8, 6],
+        [1, 9, 6],
+        [1, 10, 3],
+        [1, 11, 3],
+        [1, 12, 4],
+        [1, 13, 4],
+        [1, 14, 0],
+        [1, 15, 12],
+        [1, 16, 9],
+        [1, 17, 5],
+        [1, 18, 2],
+        [1, 19, 6],
+        [1, 20, 6],
+        [1, 21, 0],
+        [1, 22, 0],
+        [1, 23, 5],
+
+        [0, 0, 4],
+        [0, 1, 7],
+        [0, 2, 6],
+        [0, 3, 4],
+        [0, 4, 3],
+        [0, 5, 4],
+        [0, 6, 5],
+        [0, 7, 5],
+        [0, 8, 5],
+        [0, 9, 4],
+        [0, 10, 2],
+        [0, 11, 4],
+        [0, 12, 3],
+        [0, 13, 4],
+        [0, 14, 3],
+        [0, 15, 4],
+        [0, 16, 6],
+        [0, 17, 4],
+        [0, 18, 4],
+        [0, 19, 6],
+        [0, 20, 6],
+        [0, 21, 5],
+        [0, 22, 6],
+        [0, 23, 4],
+    ];
+
+
+    // var usedMap = {};
+    //
+    // var data = [];
+    //
+    // for (var i = 0; i < 120; i++) {
+    //     do {
+    //         var x = Math.round(Math.random() * (hours.length - 1));
+    //         var y = Math.round(Math.random() * (days.length - 1));
+    //         var key = y * 100 + x;
+    //     } while(usedMap[key]);
+    //
+    //     usedMap[key] = true;
+    //
+    //     data.push([
+    //         x, y, Math.random() + 0.1
+    //     ]);
+    // }
+
+
+    //policy  政策强度
+    // 基于准备好的dom，初始化echarts实例
+    var aaaChart = echarts.init(document.getElementById('aaaChart'));
+    // 指定图表的配置项和数据
+    var option = {
+        title: {
+            text: 'Punch Card of Github',
+            // link: 'https://github.com/pissang/echarts-next/graphs/punch-card'
+        },
+        legend: {
+            data: ['Punch Card'],
+            left: 'right'
+        },
+        polar: {},
+        tooltip: {
+            formatter: function (params) {
+                return params.value[2] + ' commits in ' + hours[params.value[1]] + ' of ' + days[params.value[0]];
+            }
+        },
+        angleAxis: {
+            type: 'category',
+            data: hours,
+            boundaryGap: false,
+            splitLine: {
+                show: true,
+                lineStyle: {
+                    color: '#ddd',
+                    type: 'dashed'
+                }
+            },
+            axisLine: {
+                show: false
+            }
+        },
+        radiusAxis: {
+            type: 'category',
+            data: days,
+            axisLine: {
+                show: false
+            },
+            axisLabel: {
+                rotate: 45
+            }
+        },
+        series: [{
+            name: 'Punch Card',
+            type: 'scatter',
+            coordinateSystem: 'polar',
+            symbolSize: function (val) {
+                return val[2] * 2;
+            },
+            data: data
+        }]
+    };
+
+    aaaChart.setOption(option);
+</script>
+</body>
+</html>
