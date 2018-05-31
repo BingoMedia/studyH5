@@ -13,7 +13,14 @@
     <script src="js/jquery.color.js" language="javascript"></script>
     <script src="js/echarts.min.js"></script>
     <script src="js/china.js"></script>
+
+    <!--轮播图-->
+    <script src="js/velocity.js"></script>
+    <script src="js/shutter.js"></script>
+
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/shutter.css">
+
     <style>
         body {
             font-size: 16px;
@@ -26,15 +33,17 @@
             overflow-x: hidden;
         }
 
-        /*.cx-logo {*/
-        /*position: absolute;*/
-        /*top: 5px;*/
-        /*left: 5px;*/
-        /*width: 56px;*/
-        /*height: 40px;*/
-        /*background-image: url(images/caixin.png);*/
-        /*z-index: 999*/
-        /*}*/
+        .cx-logo {
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            width: 150px;
+            height: 150px;
+            z-index: 999;
+            background-image: url(images/logo.jpeg);
+            background-size: 100%;
+
+        }
 
         .cover .image {
             position: absolute;
@@ -52,9 +61,9 @@
 <body>
 
 
-<!--<a href="http://www.caixin.com">
+<a href="javascript:;">
     <div class="cx-logo"></div>
-</a>-->
+</a>
 
 
 <div class="cover">
@@ -86,11 +95,10 @@
 <div class="content-div">
     <div class="content-wrap">
         <p>2018年6月来了，一個月後，教育部预测将有820万高校毕业生离开校园，走向就业市场，其中还不包括海外留学生，以及在毕业季腾换工作的职场人。</p>
-        <p>不过值得庆幸的是，2018年初起，国内各大城市卷起了 <span style="background: rgb(234, 217, 126)">“人才大战”</span> ，推出了一系列优惠政策，
+        <p>不过值得庆幸的是，2018年初起，国内各大城市卷起了 <span class="first">“人才大战”</span> ，推出了一系列优惠政策，
             以吸引人才流入与落户。</p>
         <p>二線城市的快速崛起也正在悄然改變著中國人才流動的“風向標”。在“人才大戰”愈演愈烈的今天，寒窗苦讀十餘載的你們，会選擇去哪一個城市築夢？</p>
-        <p>我们研究了 <span style="background: rgb(234, 217, 126)">40个省会城市</span>与<span
-                style="background: rgb(234, 217, 126)">区域经济城市</span>，其中没有发布人才新政的城市只有xx个，分别是xxx，xxx。</p>
+        <p>我们研究了 <span class="first">40个省会城市</span>与<span class="first">区域经济城市</span>，其中没有发布人才新政的城市只有xx个，分别是xxx，xxx。</p>
         <p>这些参与“人才大战”主要集中在山东半岛与京津冀城市群、泛长三角城市群以及珠三角城市群。</p>
     </div>
 </div>
@@ -129,7 +137,7 @@
 <!--人才新政时间轴-->
 <div class="content-div">
     <div class="content-wrap">
-        <p class="subtitle"><span>人才新政时间轴</span></p>
+        <p class="subtitle"><span>各城市推出人才新政时间轴</span></p>
     </div>
 </div>
 
@@ -338,7 +346,9 @@
     <div class="time-axis-line" style="border-top: none;border-right: none"></div>
     <div class="time-axis-line" style="border-top: none;border-left: none"></div>
     <div class="time-axis-line" style="border-top: none;border-right: none"></div>
-    <div class="time-axis-line" style="border-top: none;border-left: none"></div>
+    <div class="time-axis-line" style="border-top: none;border-left: none">
+        <div class="trangel"></div>
+    </div>
 
 
 </div>
@@ -357,9 +367,7 @@
 </div>
 <div class="part-top10">
     <ul>
-
     </ul>
-
 </div>
 
 <!--<div class="content-div">
@@ -416,8 +424,30 @@
 <!--词云-->
 <div class="content-div">
     <div class="content-wrap">
-        <div class="word-wrap" style="width: 100%;height: 240px;background: #fff">
-
+        <div class="word-wrap" style="width: 100%;">
+            <div class="shutter">
+                <div class="shutter-img">
+                    <a href="#" data-shutter-title="Iron Man"><img src="images/shutter_1.jpg" alt="#"></a>
+                    <a href="#" data-shutter-title="Super Man"><img src="images/shutter_2.jpg" alt="#"></a>
+                    <a href="#" data-shutter-title="The Hulk"><img src="images/shutter_3.jpg" alt="#"></a>
+                    <a href="#" data-shutter-title="The your"><img src="images/shutter_4.jpg" alt="#"></a>
+                    <a href="#" data-shutter-title="Iron Man"><img src="images/shutter_1.jpg" alt="#"></a>
+                    <a href="#" data-shutter-title="Super Man"><img src="images/shutter_2.jpg" alt="#"></a>
+                    <a href="#" data-shutter-title="The Hulk"><img src="images/shutter_3.jpg" alt="#"></a>
+                    <a href="#" data-shutter-title="The your"><img src="images/shutter_4.jpg" alt="#"></a>
+                    <a href="#" data-shutter-title="Iron Man"><img src="images/shutter_1.jpg" alt="#"></a>
+                    <a href="#" data-shutter-title="Super Man"><img src="images/shutter_2.jpg" alt="#"></a>
+                    <a href="#" data-shutter-title="The Hulk"><img src="images/shutter_3.jpg" alt="#"></a>
+                    <a href="#" data-shutter-title="The your"><img src="images/shutter_4.jpg" alt="#"></a>
+                </div>
+                <ul class="shutter-btn">
+                    <li class="prev"></li>
+                    <li class="next"></li>
+                </ul>
+                <!--  <div class="shutter-desc">
+                      <p>Iron Man</p>
+                  </div>-->
+            </div>
         </div>
     </div>
 </div>
@@ -516,26 +546,25 @@
                 xxx的友好型
             </div>
         </div>
-        <div class="chart-wrap">
-            <div class="chart">我是图表</div>
-            <div class="chart-tips">
-                xxx的友好型
-            </div>
-        </div>
-        <div class="chart-wrap">
-            <div class="chart">我是图表</div>
-            <div class="chart-tips">
-                xxx的友好型
-            </div>
-        </div>
+        <!-- <div class="chart-wrap">
+             <div class="chart">我是图表</div>
+             <div class="chart-tips">
+                 xxx的友好型
+             </div>
+         </div>
+         <div class="chart-wrap">
+             <div class="chart">我是图表</div>
+             <div class="chart-tips">
+                 xxx的友好型
+             </div>
+         </div>-->
     </div>
     <br style="clear: both">
 </div>
 
 <div class="content-div">
     <div class="content-wrap">
-        <p>xxx大學xxx教授指出，（可能可以說到城市政策的制訂其實和城市本身的一些發展指標有關係…）。</p>
-        <p>我们发现，城市人才新政颁布的背后，并不是没有规律可循的。</p>
+        <p>从繁杂的数据中，我们也有一些有趣的发现，例如人口密度越大的城市，却有着更宽松的人才政策；房地产开发活跃度较低、物流规模较小以及毕业生人数较少的城市，对人才创新创业的扶持力度竟然更大。</p>
     </div>
 </div>
 
@@ -549,11 +578,27 @@
 </div>
 <div class="content-div">
     <div class="content-wrap">
-        <p>
-            各地的人才新政究竟有多大的效力？基於2001年至2016年《》報告的XX個城市戶籍人口數目數據，看看按照正常的自然增長量2017年和2018年城市應該達到的戶籍人口數，對比已公布的部分城市2017年實際人口增長數，可見各地的一紙召令，讓無數年輕人蜂擁而至，逃離北上廣，二線城市也真正的逐漸成為了新一代年輕人築夢的廣闊天地。
-        </p>
+        <p>同时，数据也反驳了房地产“去库存”的揣测，我们发现 <span class="first">城市的房地产开发程度与政府后续推出的人才新政，并没有统计意义上的关联性。</span></p>
     </div>
 </div>
+<div class="content-div">
+    <div class="content-wrap">
+        <p>“抢人大战” 方兴未艾，但发改委在此时保持了应有的冷静，一声令下，要“抢人”更要“用人”。确实，抢人容易留人难，尽管此刻的我们仍然站在“抢人大战”的滚滚车辙之中，但时间总会证明，谁才是最大的赢家？</p>
+    </div>
+</div>
+
+<div class="content-div">
+    <div class="content-wrap">
+        <p>笨狗传播采集了24个城市自2000年的户籍人口数据，对这些城市2017年和2018年的人口进行灰色预测，预测的数值指向的是这些城市在没有推出刺激性政策的情况下，仅凭自然增长应该达到的预期人口数量。</p>
+    </div>
+</div>
+
+<div class="content-div">
+    <div class="content-wrap">
+        <p>换句话说，笨狗提供的预测人口数量是检验新政吸引人口落户效果的“测试纸”，谜底则有待时间去印证。</span></p>
+    </div>
+</div>
+
 
 <div class="content-div">
     <div class="content-wrap">
@@ -573,23 +618,27 @@
 <div class="content-div">
     <div class="content-wrap">
         <div class="currency-title">
-            <h2> 人们择城而居而业，</h2>
-            <h2>你呢？会在哪个城市开始你的故事？</h2>
+            <h2 style="color:#ad6c6a"> 最后，让我们撇开这些数据，
+                让生活在这些城市里的人们，来说说他们的故事吧。</h2>
         </div>
     </div>
 </div>
 <div class="content-div" style="padding-top: 0; padding-bottom: 0">
     <div class="content-wrap">
-
         <p>
             <video class="video" src="images/interview.mp4" poster="images/poster.jpg" id="video1" width="100%"
                    webkit-playsinline playsinline="true" preload="auto"></video>
-
         </p>
 
     </div>
 </div>
-
+<div class="content-div">
+    <div class="content-wrap">
+        <div class="currency-title">
+            <h2 style="color:#ad6c6a"> 那你呢？会在哪个城市开始属于你的故事？</h2>
+        </div>
+    </div>
+</div>
 
 </body>
 
@@ -655,8 +704,7 @@
             $(".cover").find(".sub-title").find("p").eq(coverIndex).fadeIn(1000)
         }, time);
 
-    })
-    ;
+    });
 
     // // gdpChart   GDP图表
     // // 基于准备好的dom，初始化echarts实例
@@ -890,7 +938,6 @@
     //         data: [25, 10, 50, 30, 10, 20]
     //     }]
     // };
-
 
     //policy  政策强度
     // 基于准备好的dom，初始化echarts实例
@@ -1133,6 +1180,39 @@
     });
 
 
+    // $(".content-wrap p").find(".first").animate({
+    //     backgroundColor: " rgb(234, 217, 126)"
+    // }, 1000);
+    $(".content-wrap p").find(".first").bind("mouseover", function () {
+        console.log("123123", $(this).index());
+
+        $(this).animate({
+            backgroundColor: " rgb(234, 217, 126)"
+        }, 1000);
+    });
+
+    $(".content-wrap p").find(".first").bind(" mouseout", function () {
+        console.log("123123", $(this).index());
+
+        $(this).animate({
+            backgroundColor: "transparent"
+        }, 1000);
+    });
+
+    //class="content-div">
+    // <div class="content-wrap">
+    //     <div class="word-wrap"
+    $(function () {
+        $('.content-wrap .word-wrap .shutter').shutter({
+            shutterW: 1000, // 容器宽度
+            shutterH: 358, // 容器高度
+            isAutoPlay: true, // 是否自动播放
+            playInterval: 3000, // 自动播放时间
+            curDisplay: 3, // 当前显示页
+            fullPage: false // 是否全屏展示
+        });
+    });
+
     $('.btn').click(function () {
         console.log('z-index', $(this).index());
 
@@ -1196,6 +1276,17 @@
             });
         }
 
+        if (top > 400) {
+            // rgb(234, 217, 126)"
+            // <div class="content-div">
+            //         <div class="content-wrap">
+
+            // $(".content-wrap p").find(".talent").css("background-color", " rgb(234, 217, 126)")
+            // $(".content-wrap p").find(".first").animate({
+            //     backgroundColor: " rgb(234, 217, 126)"
+            // }, 1000);
+        }
+
         // if (top > 2500) {
         //     // 使用刚指定的配置项和数据显示图表。
         //     gdpChart.setOption(gdpOption);
@@ -1239,7 +1330,7 @@
 </script>
 
 
-<!---->
+<!--链式连接线图-->
 <script type="text/javascript">
     //前24名排名Chart
     var top10 = [
@@ -1470,6 +1561,7 @@
     d3.selectAll(".topLine-天津").style("opacity", 1);
 </script>
 
+<!--放射性饼状图-->
 <script type="text/javascript">
     var days = ['配套保障', '落户政策力度', '安居补贴力度', '人才覆盖度', '政策强度'];
 
@@ -1667,6 +1759,7 @@
     zhengceChart.setOption(zhengceOption);
 </script>
 
+<!--省份地图-->
 <script type="text/javascript">
     // 全国省份列表
     var dataMap = [{name: '北京'}, {name: '天津'}, {name: '上海'}, {name: '重庆'}, {name: '河北'}, {name: '河南'}, {name: '云南'}, {name: '辽宁'}, {name: '黑龙江'}, {name: '湖南'}, {name: '安徽'}, {name: '山东'},
@@ -1719,7 +1812,7 @@
                     emphasis: {
                         borderWidth: .5,
                         borderColor: '#4b0082',
-                        areaColor: "#ffdead",
+                        areaColor: "#AD6C6A",
                     }
                 },
                 data: dataMap
