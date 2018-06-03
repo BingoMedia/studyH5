@@ -18,8 +18,8 @@ ul, li {
 
 .shutter {
     overflow: hidden;
-    width: 640px !important;
-    height: 358px;
+    /*width: 640px !important;*/
+    height: 530px;
     position: relative;
     margin: 50px auto;
     border-radius: 10px;

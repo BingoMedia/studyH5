@@ -3,9 +3,10 @@ body, button, dd, dl, dt, form, h1, h2, h3, h4, h5, h6, hr, input, li, ol, p, td
     padding: 0
 }
 
-body{
+body {
     background: #e3e3e3 !important;
 }
+
 img {
     vertical-align: top;
 }
@@ -282,10 +283,10 @@ ul, li {
     height: 0;
     border-width: 9px;
     border-style: solid;
-    border-color: transparent #ccc transparent transparent;
+    border-color: transparent transparent transparent #ccc;
     position: absolute;
     bottom: -10px;
-    left: -10px;
+    right: -10px;
 }
 
 .time-axis-wrap .time-axis-detail {
@@ -294,9 +295,11 @@ ul, li {
     text-align: center;
     display: none;
 }
+
 .time-axis-wrap .time-axis-detail img {
     width: 60px;
 }
+
 .time-axis-wrap .time-axis-detail .axis-title {
     font-size: 16px;
     text-align: center;
@@ -411,12 +414,12 @@ ul, li {
 
 .part-top10 {
     width: 600px;
-    height: 930px;
+    height: 1100px;
     position: relative;
     margin: 0 auto;
     overflow: hidden;
     text-align: center;
-
+    transform: scaleX(1.7) scaleY(1.2) translateY(100px);
     /*padding-left: 27px;*/
     /*padding-top: 10px;*/
 }
@@ -480,7 +483,6 @@ ul, li {
     background-color: #4e3929;
     color: #fff
 }
-
 
 /*底部制作人*/
 .credit {
