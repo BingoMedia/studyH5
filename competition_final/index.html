@@ -919,7 +919,10 @@
 <div class="content-div" style="padding: 0">
     <div class="content-wrap">
         <div class="currency-chart" style="height:500px">
-            <img src="images/sandiantu.png" alt="" width="100%" height="100%">
+            <img src="images/sandian.png" alt="" width="100%" height="100%">
+            <div class="sandian-line1"></div>
+            <div class="sandian-line2"></div>
+            <div class="sandian-line3"></div>
         </div>
     </div>
 </div>
@@ -1137,31 +1140,29 @@
 
         setTimeout(function () {
             $(".map-wrap .citys_map .heihe-circle2").fadeIn(1000).css('transform', 'rotate(-63deg) scale(1)');
-        },500)
+        }, 500)
         setTimeout(function () {
             $(".map-wrap .citys_map .heihe-circle1").fadeIn(1000).css('transform', 'rotate(-30deg) scale(1)');
-        },1000)
+        }, 1000)
         setTimeout(function () {
             $(".map-wrap .citys_map .heihe-circle3").fadeIn(1000).css('transform', 'rotate(15deg) scale(1)');
-        },1500)
+        }, 1500)
         setTimeout(function () {
             $(".map-wrap .citys_map .heihe-circle4").fadeIn(1000).css('transform', 'rotate(-12deg) scale(1)');
-        },2000)
+        }, 2000)
 
         setTimeout(function () {
             $(".map-wrap .citys_map .heihe-circle5").fadeIn(1000).css('transform', 'rotate(-92deg)  scale(1)');
-        },2500)
+        }, 2500)
         setTimeout(function () {
             $(".map-wrap .citys_map .heihe-circle6").fadeIn(1000).css('transform', ' rotate(13deg)  scale(1)');
-        },3000)
+        }, 3000)
         setTimeout(function () {
             $(".map-wrap .citys_map .heihe-line").fadeIn(1000).css('transform', 'rotate(-45deg) scale(1)');
-        },3500)
+        }, 3500)
         setTimeout(function () {
             $(".map-wrap .citys_map .qinhuai-line1").fadeIn(1000).css('width', '210px');
-        },4000)
-
-
+        }, 4000)
 
 
     });
@@ -1231,7 +1232,18 @@
 
             });
         }
-
+        if (top >= 10440) {
+            setTimeout(function () {
+                $('.content-wrap .currency-chart .sandian-line1').fadeIn(1000).css({width: "310px"})
+            }, 500);
+            setTimeout(function () {
+                $('.content-wrap .currency-chart .sandian-line2').fadeIn(1000).css({width: "337px"})
+            }, 1000);
+            setTimeout(function () {
+                $('.content-wrap .currency-chart .sandian-line3').fadeIn(1000).css({width: "337px"})
+            }, 1500);
+        }
+        //    content-wrap .currency-chart .sandian-line3
     });
 
 
