@@ -417,7 +417,7 @@ ul, li {
     height: 1100px;
     position: relative;
     margin: 0 auto;
-    overflow: hidden;
+    /*overflow: hidden;*/
     text-align: center;
     transform: scaleX(1.4) scaleY(1.2) translateY(100px);
     /*padding-left: 27px;*/
@@ -435,12 +435,86 @@ ul, li {
 }
 
 .part-top10 li {
-    height: 37px
+    height: 37px;
 }
-.part-top10 li:nth-of-type(1) {
-    background: red;
-    height: 37px
+.part-top10 .col1 li:nth-of-type(1){
+    height: 50px;
+    margin-top: -10px;
 }
+.part-top10 .col2 li:nth-of-type(1){
+    height: 50px;    margin-top: -10px;
+
+}
+.part-top10 .col3 li:nth-of-type(1){
+    height: 50px;    margin-top: -10px;
+
+}
+.part-top10 .col4 li:nth-of-type(1){
+    height: 50px;    margin-top: -10px;
+
+}
+.part-top10 .col5 li:nth-of-type(1){
+    height: 50px;    margin-top: -10px;
+
+}
+.part-top10 .col6 li:nth-of-type(1){
+    height: 50px;    margin-top: -10px;
+
+}
+.part-top10 .col1 li:nth-of-type(1) > span {
+    /*height: 37px;*/
+    background: #add0df;
+    border-radius: 4px;
+    line-height: 37px;
+    height: 40px;
+
+}
+
+.part-top10 .col2 li:nth-of-type(1) > span {
+    /*height: 37px;*/
+    background: #84acd3;
+    border-radius: 4px;
+    line-height: 37px;
+    height: 40px;
+
+}
+
+.part-top10 .col3 li:nth-of-type(1) > span {
+    /*height: 37px;*/
+    background: #add0df;
+    border-radius: 4px;
+    line-height: 37px;
+    height: 40px;
+
+}
+
+.part-top10 .col4 li:nth-of-type(1) > span {
+    /*height: 37px;*/
+    background: #84acd3;
+    border-radius: 4px;
+    height: 40px;
+    line-height: 37px;
+
+}
+
+.part-top10 .col5 li:nth-of-type(1) > span {
+    /*height: 37px;*/
+    background: #add0df;
+    border-radius: 4px;
+    height: 40px;
+    line-height: 37px;
+
+}
+
+.part-top10 .col6 li:nth-of-type(1) > span {
+    /*height: 37px;*/
+    background: #84acd3;
+    border-radius: 4px;
+    line-height: 37px;
+    height: 40px;
+
+}
+
 .part-top10 li span {
     padding: 3px 13px;
     border-radius: 13px

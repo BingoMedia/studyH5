@@ -507,7 +507,8 @@
 
     <div class="citys_map"
          style="height: 800px;width:1200px;background:transparent;margin:20px 0 0;margin: 0 auto;z-index: 1;display: none">
-        <img style="    transform: scale(0.8) translateY(-20px);" src="images/citys_map.png" alt="" width="100%" height="100%">
+        <img style="    transform: scale(0.8) translateY(-20px);" src="images/citys_map.png" alt="" width="100%"
+             height="100%">
     </div>
 </div>
 
@@ -797,6 +798,8 @@
             <!--<p class="mobile-only" style="text-align:center"><img src="images/qr.png" width="50%"></p>-->
     </div>
 </div>
+
+<div class="fotter" style="width: 100%;height: 80px;background: #89bdd3"></div>
 </body>
 
 <script type="text/javascript">
@@ -903,6 +906,20 @@
             curDisplay: 3, // 当前显示页
             fullPage: false // 是否全屏展示
         });
+    });
+
+    //视频播放
+    $("#video1").click(function () {
+        if (document.getElementById("video1").paused) {
+            //console.log("play")
+            document.getElementById("video1").play();
+            document.getElementById("video1").controls = "controls"
+        }
+        else {
+            //console.log("pause")
+            document.getElementById("video1").pause()
+
+        }
     });
 </script>
 
@@ -1139,15 +1156,20 @@
     $(".part-top10").append(ul);
     for (var i = 0; i < 25; i++) {
         if (i == 0) $(".part-top10").find("ul").eq(0).addClass("rank").append("<li></li>");
-        else $(".part-top10").find("ul").eq(0).addClass("rank").append("<li>" + i + "</li>")
+        // else if (i == 1) $(".part-top10").find("ul").eq(0).addClass("rank").append("<li><span>" + i + "</span></li>");
+        else  $(".part-top10").find("ul").eq(0).addClass("rank").append("<li>" + i + "</li>")
     }
     for (var col = 0; col < 6; col++) {
         var ul = $("<ul></ul>");
         $(".part-top10").append(ul);
         $(".part-top10").find("ul").eq(col + 1).addClass("col" + (col + 1));
         for (var i = 0; i < 25; i++) {
-            if (i > 0) var li = $(".part-top10").find("ul").eq(col + 1).append("<li class='topCity'><span class='topCityAll topCity-" + top10[col][i] + "'>" + top10[col][i] + "</span></li>")
-            else li = $(".part-top10").find("ul").eq(col + 1).append("<li>" + top10[col][i] + "</li>")
+            if (i > 0) {
+                var li = $(".part-top10").find("ul").eq(col + 1).append("<li class='topCity'><span class='topCityAll topCity-" + top10[col][i] + "'>" + top10[col][i] + "</span></li>")
+            }
+            else {
+                li = $(".part-top10").find("ul").eq(col + 1).append("<li><span>" + top10[col][i] + "</span></li>")
+            }
 
         }
     }
