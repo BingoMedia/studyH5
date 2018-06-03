@@ -4,7 +4,7 @@ body, button, dd, dl, dt, form, h1, h2, h3, h4, h5, h6, hr, input, li, ol, p, td
 }
 
 body {
-    background: #e3e3e3 !important;
+    background: #fff !important;
 }
 
 img {
@@ -158,8 +158,8 @@ ul, li {
 .content-wrap {
     width: 1200px;
     margin: 0 auto;
-    font-size: 20px;
-    line-height: 28px;
+    font-size: 28px;
+    line-height: 1.5em;
     text-align: left;
 }
 
@@ -169,15 +169,15 @@ ul, li {
 }
 
 .content-wrap .subtitle span {
-    border-bottom: 2px #88b8d6 solid;
+    /*border-bottom: 2px #333 solid;*/
     padding-bottom: 4px;
     font-weight: 900
 }
 
 .content-wrap .subtitle {
-    color: #88b8d6;
+    color: #333;
     font-size: 30px;
-    text-align: center;
+    text-align: left;
 }
 
 .content-wrap .caption {
@@ -419,7 +419,7 @@ ul, li {
     margin: 0 auto;
     overflow: hidden;
     text-align: center;
-    transform: scaleX(1.7) scaleY(1.2) translateY(100px);
+    transform: scaleX(1.4) scaleY(1.2) translateY(100px);
     /*padding-left: 27px;*/
     /*padding-top: 10px;*/
 }
@@ -437,7 +437,10 @@ ul, li {
 .part-top10 li {
     height: 37px
 }
-
+.part-top10 li:nth-of-type(1) {
+    background: red;
+    height: 37px
+}
 .part-top10 li span {
     padding: 3px 13px;
     border-radius: 13px
