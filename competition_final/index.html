@@ -765,8 +765,8 @@
 </div>
 <div class="content-div">
     <div class="content-wrap">
-        <div class="currency-chart">
-            tubiao
+        <div class="currency-chart" style="height:800px;">
+            <div style="width: 1000px;height:800px; margin: 0 auto;" id="changzhuChart" class="changzhuChart"></div>
         </div>
     </div>
 </div>
@@ -777,7 +777,7 @@
 </div>
 <div class="content-div" style="padding-top: 0; padding-bottom: 0">
     <div class="content-wrap">
-        <p>
+        <p style="border: 1px solid #d5d5d5">
             <video class="video" src="images/rencai.mp4" poster="images/poster1.jpeg" id="video1" width="100%"
                    webkit-playsinline playsinline="true" preload="auto"></video>
         </p>
@@ -922,7 +922,200 @@
         }
     });
 </script>
+<script  type="text/javascript">
 
+    var city = [
+        "合肥",
+        "武汉",
+        "南京",
+        "重庆",
+        "天津",
+        "厦门",
+        "珠海",
+        "成都",
+        "长沙",
+        "西安"
+    ];
+
+    // 基于准备好的dom，初始化echarts实例
+    var app = echarts.init(document.getElementById('changzhuChart'));
+    // 指定图表的配置项和数据
+    var posList = [
+        'left', 'right', 'top', 'bottom',
+        'inside',
+        'insideTop', 'insideLeft', 'insideRight', 'insideBottom',
+        'insideTopLeft', 'insideTopRight', 'insideBottomLeft', 'insideBottomRight'
+    ];
+
+    app.configParameters = {
+        rotate: {
+            min: -90,
+            max: 90
+        },
+        align: {
+            options: {
+                left: 'left',
+                center: 'center',
+                right: 'right'
+            }
+        },
+        verticalAlign: {
+            options: {
+                top: 'top',
+                middle: 'middle',
+                bottom: 'bottom'
+            }
+        },
+        position: {
+            options: echarts.util.reduce(posList, function (map, pos) {
+                map[pos] = pos;
+                return map;
+            }, {})
+        },
+        distance: {
+            min: 0,
+            max: 100
+        }
+    };
+
+    app.config = {
+        rotate: 90,
+        align: 'left',
+        verticalAlign: 'middle',
+        position: 'insideBottom',
+        distance: 15,
+        onChange: function () {
+            var labelOption = {
+                normal: {
+                    rotate: app.config.rotate,
+                    align: app.config.align,
+                    verticalAlign: app.config.verticalAlign,
+                    position: app.config.position,
+                    distance: app.config.distance
+                }
+            };
+            myChart.setOption({
+                series: [{
+                    label: labelOption
+                }, {
+                    label: labelOption
+                }, {
+                    label: labelOption
+                }, {
+                    label: labelOption
+                }]
+            });
+        }
+    };
+
+
+    var labelOption = {
+        normal: {
+            show: true,
+            position: app.config.position,
+            distance: app.config.distance,
+            align: app.config.align,
+            verticalAlign: app.config.verticalAlign,
+            rotate: app.config.rotate,
+            // formatter: '{c}  {name|{a}}',
+            fontSize: 16,
+            rich: {
+                name: {
+                    textBorderColor: '#fff'
+                }
+            }
+        }
+    };
+
+    option = {
+        color: [' #88b8d6', '#d48265'],
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
+        legend: {
+            data: ['常住', '户籍']
+        },
+        toolbox: {
+            show: true,
+            orient: 'vertical',
+            left: 'right',
+            top: 'center',
+            feature: {
+                mark: {show: true},
+                dataView: {show: true, readOnly: false},
+                magicType: {show: true, type: ['line', 'bar', 'stack', 'tiled']},
+                restore: {show: true},
+                saveAsImage: {show: true}
+            }
+        },
+        calculable: true,
+        xAxis: [
+            {
+                type: 'category',
+                axisTick: {show: false},
+                data: [
+                    "合肥",
+                    "武汉",
+                    "南京",
+                    "重庆",
+                    "天津",
+                    "厦门",
+                    "珠海",
+                    "成都",
+                    "长沙",
+                    "西安"
+                ]
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value',
+                name: '百分比（%）'
+            }
+        ],
+        series: [
+            {
+                name: '常住',
+                type: 'bar',
+                barGap: 0,
+                label: labelOption,
+                data: [
+                    1.13,
+                    1.75,
+                    0.33,
+                    0.87,
+                    2.00,
+                    1.67,
+                    1.75,
+                    3.68,
+                    1.92,
+                    0.94
+                ]
+            },
+            {
+                name: '户籍',
+                type: 'bar',
+                label: labelOption,
+                data: [
+                    0.85,
+                    0.48,
+                    1.01,
+                    0.33,
+                    1.33,
+                    3.87,
+                    1.87,
+                    5.75,
+                    1.64,
+                    0.74
+                ]
+            },
+        ]
+    };
+    app.setOption(option);
+</script>
 <!--人口预测图表-->
 <script type="text/javascript">
 
