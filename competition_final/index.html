@@ -673,16 +673,27 @@
 </div>
 
 <!--省份地图-->
-
-
 <div class="map-wrap" style="position: relative;height: 800px;">
     <div id="container" style="height: 800px;width:1200px;background:transparent;margin:20px 0 0;margin: 0 auto;position: absolute;    left: 50%;
     margin-left: -600px; z-index: 2;display: block"></div>
 
     <div class="citys_map"
          style="height: 800px;width:1200px;background:transparent;margin:20px 0 0;margin: 0 auto;z-index: 1;display: none">
-        <img style="    transform: scale(0.8) translateY(-20px);" src="images/citys_map.png" alt="" width="100%"
+        <img style="transform: scale(0.8) translateY(-20px);" src="images/citys_map.png" alt="" width="100%"
              height="100%">
+        <div class="heihe-line"></div>
+        <div class="qinhuai-line1"></div>
+        <div class="qinhuai-line2"></div>
+
+
+        <div class="heihe-circle1"></div>
+        <div class="heihe-circle2"></div>
+        <div class="heihe-circle3"></div>
+
+        <div class="heihe-circle4"></div>
+        <div class="heihe-circle5"></div>
+        <div class="heihe-circle6"></div>
+
     </div>
 </div>
 
@@ -1056,6 +1067,24 @@
 
     });
 
+
+    /*、
+    *    <div class="heihe-line"></div>
+        <div class="qinhuai-line1"></div>
+        <div class="qinhuai-line2"></div>
+
+
+        <div class="heihe-circle1"></div>
+        <div class="heihe-circle2"></div>
+        <div class="heihe-circle3"></div>
+
+        <div class="heihe-circle4"></div>
+        <div class="heihe-circle5"></div>
+        <div class="heihe-circle6"></div>
+    *
+    * */
+
+
     $(".byDistance, .hitDis").click(function () {
         //按钮切换
         $(".pointer").animate({left: 0}, 500).removeClass("color1").addClass("color2");
@@ -1072,6 +1101,18 @@
             "z-index": 1,
             // visibility: "hidden"
         }, 500).css('display', 'none');
+
+        //heihe-circle2
+
+        $(".map-wrap .citys_map .heihe-circle2").css('transform', 'rotate(-63deg) scale(0)');
+        $(".map-wrap .citys_map .heihe-circle1").css('transform', 'rotate(-30deg) scale(0)');
+        $(".map-wrap .citys_map .heihe-circle3").css('transform', 'rotate(15deg) scale(0)');
+        $(".map-wrap .citys_map .heihe-circle4").css('transform', 'rotate(-12deg) scale(0)');
+        $(".map-wrap .citys_map .heihe-circle5").css('transform', 'rotate(13deg) scale(0)');
+        $(".map-wrap .citys_map .heihe-circle6").css('transform', ' rotate(-92deg) scale(0)');
+        $(".map-wrap .citys_map .heihe-line").css('transform', 'rotate(-45deg) scale(0)');
+
+        $(".map-wrap .citys_map .qinhuai-line1").css('width', '0');
 
     });
 
@@ -1093,6 +1134,35 @@
             // visibility: "visible",
             "z-index": 2
         }, 500).css('display', 'block');
+
+        setTimeout(function () {
+            $(".map-wrap .citys_map .heihe-circle2").fadeIn(1000).css('transform', 'rotate(-63deg) scale(1)');
+        },500)
+        setTimeout(function () {
+            $(".map-wrap .citys_map .heihe-circle1").fadeIn(1000).css('transform', 'rotate(-30deg) scale(1)');
+        },1000)
+        setTimeout(function () {
+            $(".map-wrap .citys_map .heihe-circle3").fadeIn(1000).css('transform', 'rotate(15deg) scale(1)');
+        },1500)
+        setTimeout(function () {
+            $(".map-wrap .citys_map .heihe-circle4").fadeIn(1000).css('transform', 'rotate(-12deg) scale(1)');
+        },2000)
+
+        setTimeout(function () {
+            $(".map-wrap .citys_map .heihe-circle5").fadeIn(1000).css('transform', 'rotate(-92deg)  scale(1)');
+        },2500)
+        setTimeout(function () {
+            $(".map-wrap .citys_map .heihe-circle6").fadeIn(1000).css('transform', ' rotate(13deg)  scale(1)');
+        },3000)
+        setTimeout(function () {
+            $(".map-wrap .citys_map .heihe-line").fadeIn(1000).css('transform', 'rotate(-45deg) scale(1)');
+        },3500)
+        setTimeout(function () {
+            $(".map-wrap .citys_map .qinhuai-line1").fadeIn(1000).css('width', '210px');
+        },4000)
+
+
+
 
     });
 
@@ -1121,28 +1191,7 @@
         $('body,html').animate({'scrollTop': t + 1000}, 100)
     });
 
-    /*、
-    *
-    * <div class="content-div" style="padding-top: 0px; padding-bottom: 0px;">
-    <div class="content-wrap">
-        <div class="word-wrap" style="width: 100%;">
-            <div class="shutter" style="width: 100%;">
-                <div class="shutter-img">
-                    <a href="#" data-shutter-title="Iron Man"><img src="images/ciyun1.png" alt="#"></a>
-                </div>
-                <ul class="shutter-btn">
-                    <li class="prev"></li>
-                    <li class="next"></li>
-                </ul>
-                <!--  <div class="shutter-desc">
-                      <p>Iron Man</p>
-                  </div>-->
-            </div>
-        </div>
-    </div>
-</div>
-    *
-    * */
+
     // //词云
     // for (var z = 0; z < 24; z++) {
     //     var num = Number(z) + 1;
