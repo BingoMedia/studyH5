@@ -353,11 +353,6 @@ ul, li {
     background: #fff;
 }
 
-/*
-<div class="axis-line1"></div>
-        <div class="axis-title1">杭州 </div>
-        <div class="axis-time1">2017.04.11</div>
-*/
 
 .time-axis-wrap .time-axis-detail img {
     width: 60px;
@@ -373,7 +368,7 @@ ul, li {
 .time-axis-wrap1 .time-axis-detail1 .axis-title1 {
     font-size: 16px;
     text-align: center;
-    color: #89bdd3;
+    color: #84acd3;
 }
 
 .time-axis-wrap .time-axis-detail .axis-time {
