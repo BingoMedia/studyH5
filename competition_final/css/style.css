@@ -156,6 +156,7 @@ ul, li {
 }
 
 .content-wrap {
+    font-family: "Microsoft YaHei";
     width: 1200px;
     margin: 0 auto;
     font-size: 28px;
@@ -182,7 +183,7 @@ ul, li {
 
 .content-wrap .caption {
     color: #333;
-    font-size: 22px;
+    font-size: 18px;
     line-height: 28px;
     width: 70%;
     margin: 0 auto;
@@ -234,11 +235,11 @@ ul, li {
 }
 
 .part-distance .color2 {
-    background-color: #AD6C6A
+    background-color: #89bdd3
 }
 
 .part-distance .color1 {
-    background-color: rgb(248, 179, 48)
+    background-color: #d48265
 }
 
 .part-distance .hitDis {
@@ -437,30 +438,42 @@ ul, li {
 .part-top10 li {
     height: 37px;
 }
-.part-top10 .col1 li:nth-of-type(1){
+
+.part-top10 .col1 li:nth-of-type(1) {
     height: 50px;
     margin-top: -10px;
 }
-.part-top10 .col2 li:nth-of-type(1){
-    height: 50px;    margin-top: -10px;
+
+.part-top10 .col2 li:nth-of-type(1) {
+    height: 50px;
+    margin-top: -10px;
 
 }
-.part-top10 .col3 li:nth-of-type(1){
-    height: 50px;    margin-top: -10px;
+
+.part-top10 .col3 li:nth-of-type(1) {
+    height: 50px;
+    margin-top: -10px;
 
 }
-.part-top10 .col4 li:nth-of-type(1){
-    height: 50px;    margin-top: -10px;
+
+.part-top10 .col4 li:nth-of-type(1) {
+    height: 50px;
+    margin-top: -10px;
 
 }
-.part-top10 .col5 li:nth-of-type(1){
-    height: 50px;    margin-top: -10px;
+
+.part-top10 .col5 li:nth-of-type(1) {
+    height: 50px;
+    margin-top: -10px;
 
 }
-.part-top10 .col6 li:nth-of-type(1){
-    height: 50px;    margin-top: -10px;
+
+.part-top10 .col6 li:nth-of-type(1) {
+    height: 50px;
+    margin-top: -10px;
 
 }
+
 .part-top10 .col1 li:nth-of-type(1) > span {
     /*height: 37px;*/
     background: #add0df;
@@ -528,7 +541,7 @@ ul, li {
 }
 
 .part-top10 ul.col1 .chosen {
-    background-color: #deca90;
+    background-color: #add0df;
     color: #fff
 }
 
@@ -537,27 +550,27 @@ ul, li {
     /*#5a1114 红*/
     /*#4e3929 黑*/
 
-    background-color: #5a1114;
+    background-color: #84acd3;
     color: #fff
 }
 
 .part-top10 ul.col3 .chosen {
-    background-color: #4e3929;
+    background-color: #add0df;
     color: #fff
 }
 
 .part-top10 ul.col4 .chosen {
-    background-color: #deca90;
+    background-color: #84acd3;
     color: #fff
 }
 
 .part-top10 ul.col5 .chosen {
-    background-color: #5a1114;
+    background-color: #add0df;
     color: #fff
 }
 
 .part-top10 ul.col6 .chosen {
-    background-color: #4e3929;
+    background-color: #84acd3;
     color: #fff
 }
 

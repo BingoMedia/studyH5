@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        html body #aaaChart {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="aaaChart" style="height: 800px;width:1200px;background:transparent;margin:20px 0 0;margin: 0 auto"></div>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/echarts.min.js"></script>
+<script>
+
+
+    // 基于准备好的dom，初始化echarts实例
+    var app = echarts.init(document.getElementById('aaaChart'));
+    app.title = '人口预测数据';
+    option = {
+        backgroundColor: "#ffffff",
+        color: ["#88b8d6", "#d48265","#c9c9c9"],
+        legend: {
+            data: ['2016', '2017', '2018']
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
+        grid: {
+            containLabel: true
+        },
+        // xAxis: [{
+        //     type: 'category',
+        //     data: ['篮球', '排球', '足球', '羽毛球', '乒乓球', '跆拳道'],
+        //     axisTick: {
+        //         alignWithLabel: true
+        //     }
+        // }],
+        xAxis: [
+            {
+                'type': 'category',
+                'axisLabel': {'interval': 0},
+                'data': [
+                    '西安', '\n杭州', '长沙', '\n成都', '广州', '\n海口', '南昌', '\n珠海', '鄂尔多斯', '\n厦门', '天津',
+                    '\n沈阳', '南京', '\n武汉', '石家庄', '\n太原', '长春', '\n哈尔滨', '福州', '\n济南', '郑州', '\n合肥',
+                ],
+                    axisTick: {
+                        alignWithLabel: true
+                    }
+            }
+        ],
+        yAxis: [{
+            type: 'value'
+        }],
+        series: [
+            {
+                name: '2016',
+                type: 'bar',
+                stack: '总量',
+                barWidth: '70%',
+                data: [
+                    8249300,
+                    7360000,
+                    6959998,
+                    13989297,
+                    8704901,
+                    1670344,
+                    5227900,
+                    1147765,
+                    1594396,
+                    2205489,
+                    10444000,
+                    // 33921100,
+                    7344000,
+                    6627900,
+                    8338400,
+                    10784600,
+                    4344400,
+                    7534000,
+                    9620500,
+                    6870600,
+                    7233100,
+                    9724000,
+                    7298300,
+                ]
+            }, {
+                name: '2017',
+                type: 'bar',
+                stack: '总量',
+                barWidth: '70%',
+                data: [
+                    8283248,
+                    7457649,
+                    7046037,
+                    0,
+                    8812029,
+                    1691786,
+                    0,
+                    1170411,
+                    1608500,
+                    2260910,
+                    10483343,
+                    // 34002161,
+                    7350939,
+                    6643642,
+                    0,
+                    10879900,
+                    0,
+                    0,
+                    9550000,
+                    6916919,
+                    7321200,
+                    9881000,
+                    0
+                ]
+            },{
+                name: '2018',
+                type: 'bar',
+                stack: '总量',
+                barWidth: '70%',
+                data: [
+                    8378121,
+                    7530710,
+                    7117777,
+                    0,
+                    8934351,
+                    1721050,
+                    0,
+                    1202013,
+                    1624477,
+                    2335090,
+                    10604011,
+                    // 34227449,
+                    7350939,
+                    6718998,
+                    0,
+                    11017847,
+                    0,
+                    0,
+                    9473432,
+                    6984090,
+                    7407200,
+                    10050193,
+                    0,
+                ]
+            },]
+    };
+    app.setOption(option);
+</script>
+</body>
+</html>

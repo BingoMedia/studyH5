@@ -480,7 +480,7 @@
 <!--人才新政地图-->
 <div class="content-div" style="padding-bottom: 0">
     <div class="content-wrap">
-        <p class="subtitle"><span>“抢人大战”的全国地图</span></p>
+        <p class="subtitle" style="text-align: center"><span>“抢人大战”的全国地图</span></p>
         <p class="caption" style="text-align: center">数据来源：37个城市政府网站</p>
     </div>
 </div>
@@ -531,7 +531,7 @@
 <!--你在挑选城市，城市也在挑选你-->
 <div class="content-div" style="padding-bottom: 0">
     <div class="content-wrap">
-        <p class="subtitle"><span>你在挑选城市，城市也在挑选你</span></p>
+        <p class="subtitle"><span> 你在挑选城市，城市也在挑选你</span></p>
         <!--<p class="caption">注：<span class="highlight">“通勤距离&通勤时间”</span>：此处是指根据滴滴出行平台上打车出行数据测算的上下班通勤距离和时间，即工作日06:00-10:00和16:00-21:00期间通过滴滴顺风车和专快车来往于住宅小区和商务楼宇的订单的平均距离及时间，数据统计周期为2017年11月。-->
         </p>
     </div>
@@ -562,7 +562,7 @@
 <!--24城市的六项宜居维度-->
 <div class="content-div">
     <div class="content-wrap">
-        <p class="subtitle"><span>24城市的六项宜居维度</span></p>
+        <p class="subtitle" style="text-align: center"><span>24城市的六项宜居维度</span></p>
         <p class="caption" style="text-align: center">数据来源：国家及省市统计局</p>
     </div>
 </div>
@@ -641,7 +641,7 @@
 <!--人才新政时间轴-->
 <div class="content-div">
     <div class="content-wrap">
-        <p class="subtitle"><span>城市政策力度对比</span></p>
+        <p class="subtitle" style="text-align: center"><span>城市政策力度对比</span></p>
         <p class="caption">注：城市人才政策的总强度得分，是根据四个子维度的分数加权所得，包含人才覆盖度、安居补贴力度、落户政策力度、配套保障力度等</p>
     </div>
 </div>
@@ -661,7 +661,7 @@
 
 <div class="content-div">
     <div class="content-wrap">
-        <p class="subtitle"><span>为何会在2018年前后爆发“人才大战”？</span></p>
+        <p class="subtitle"><span> 为何会在2018年前后爆发“人才大战”？</span></p>
         <!--<p class="caption">注：城市人才政策的总强度得分，是根据四个子维度的分数加权所得，包含人才覆盖度、安居补贴力度、落户政策力度、配套保障力度等</p>-->
     </div>
 </div>
@@ -680,7 +680,7 @@
 
 <div class="content-div" style="padding-bottom: 0">
     <div class="content-wrap">
-        <p class="subtitle"><span>城市特征与政策力度的相关散点图</span></p>
+        <p class="subtitle" style="text-align: center"><span>城市特征与政策力度的相关散点图</span></p>
         <!--<p class="caption">注：城市人才政策的总强度得分，是根据四个子维度的分数加权所得，包含人才覆盖度、安居补贴力度、落户政策力度、配套保障力度等</p>-->
     </div>
 </div>
@@ -710,7 +710,7 @@
 </div>
 <div class="content-div">
     <div class="content-wrap">
-        <p class="subtitle"><span>如何检验人才新政的成效？</span></p>
+        <p class="subtitle"><span> 如何检验人才新政的成效？</span></p>
         <!--<p class="caption">注：城市人才政策的总强度得分，是根据四个子维度的分数加权所得，包含人才覆盖度、安居补贴力度、落户政策力度、配套保障力度等</p>-->
     </div>
 </div>
@@ -743,10 +743,10 @@
     </div>
     <br style="clear: both">
 </div>-->
-<div class="content-div">
-    <div class="content-wrap">
-        <div class="currency-chart">
-            tubiao
+<div class="content-div" style="height: 800px;">
+    <div class="content-wrap" style="height: 800px;">
+        <div class="currency-chart" style="height: 800px;">
+            <div style="width: 1000px;height:800px; margin: 0 auto;" id="renkouChart" class="renkouChart"></div>
         </div>
     </div>
 </div>
@@ -923,7 +923,182 @@
     });
 </script>
 
+<!--人口预测图表-->
+<script type="text/javascript">
 
+    // 基于准备好的dom，初始化echarts实例
+    var app = echarts.init(document.getElementById('renkouChart'));
+    app.title = '人口预测数据';
+    option = {
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        legend: {
+            data: ['2016', '2017', '2018']
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+
+        // xAxis: {
+        //     type: 'category',
+        //     data: [
+        //         '西安', '\n杭州', '长沙', '\n成都', '广州', '\n海口', '南昌', '\n珠海', '鄂尔多斯', '\n厦门', '天津', '\n重庆',
+        //         '沈阳', '\n南京', '武汉', '\n石家庄', '太原', '\n长春', '哈尔滨', '\n福州', '济南', '\n郑州', '合肥',
+        //     ]
+        // },
+        xAxis: [
+            {
+                'type': 'category',
+                'axisLabel': {'interval': 0},
+                'data': [
+                    '西安', '\n杭州', '长沙', '\n成都', '广州', '\n海口', '南昌', '\n珠海', '鄂尔多斯', '\n厦门', '天津', '\n重庆',
+                    '沈阳', '\n南京', '武汉', '\n石家庄', '太原', '\n长春', '哈尔滨', '\n福州', '济南', '\n郑州', '合肥',
+                ],
+                splitLine: {show: false}
+            }
+        ],
+        yAxis: {
+            type: 'value',
+            show:false,
+        },
+        series: [
+            {
+                name: '2016',
+                type: 'bar',
+                stack: '总量',
+                color: '#88b8d6',
+                borderColor: '#88b8d6',
+                borderWidth: '#88b8d6',
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'insideRight',
+                        textStyle: {
+                            color: '#88b8d6'
+                        }
+                    }
+                },
+                data: [
+                    8249300,
+                    7360000,
+                    6959998,
+                    13989297,
+                    8704901,
+                    1670344,
+                    5227900,
+                    1147765,
+                    1594396,
+                    2205489,
+                    10444000,
+                    33921100,
+                    7344000,
+                    6627900,
+                    8338400,
+                    10784600,
+                    4344400,
+                    7534000,
+                    9620500,
+                    6870600,
+                    7233100,
+                    9724000,
+                    7298300,
+                ]
+            },
+            {
+                name: '2017',
+                type: 'bar',
+                stack: '总量',
+                color: '#d48265',
+                borderColor: '#d48265',
+                borderWidth: '#d48265',
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'insideRight',
+                        textStyle: {
+                            color: '#d48265'
+                        }
+                    }
+                },
+                data: [
+                    8283248,
+                    7457649,
+                    7046037,
+                    0,
+                    8812029,
+                    1691786,
+                    0,
+                    1170411,
+                    1608500,
+                    2260910,
+                    10483343,
+                    34002161,
+                    7350939,
+                    6643642,
+                    0,
+                    10879900,
+                    0,
+                    0,
+                    9550000,
+                    6916919,
+                    7321200,
+                    9881000,
+                    0
+                ]
+            },
+            {
+                name: '2018',
+                type: 'bar',
+                stack: '总量',
+                color: '#c9c9c9',
+                borderColor: '#c9c9c9',
+                borderWidth: '#c9c9c9',
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'insideRight',
+                        textStyle: {
+                            color: '#c9c9c9'
+                        }
+                    }
+                },
+                data: [
+                    8378121,
+                    7530710,
+                    7117777,
+                    0,
+                    8934351,
+                    1721050,
+                    0,
+                    1202013,
+                    1624477,
+                    2335090,
+                    10604011,
+                    34227449,
+                    7350939,
+                    6718998,
+                    0,
+                    11017847,
+                    0,
+                    0,
+                    9473432,
+                    6984090,
+                    7407200,
+                    10050193,
+                    0,
+                ]
+            },
+        ]
+    };
+    app.setOption(option);
+</script>
 <!--放射性饼状图-->
 <script type="text/javascript">
     var days = ['配套保障', '落户政策力度', '安居补贴力度', '人才覆盖度', '政策强度'];
@@ -1084,7 +1259,7 @@
         polar: {},
         tooltip: {
             formatter: function (params) {
-                return params.value[2] + ' commits in ' + hours[params.value[1]] + ' of ' + days[params.value[0]];
+                // return params.value[2] + ' commits in ' + hours[params.value[1]] + ' of ' + days[params.value[0]];
             }
         },
         angleAxis: {
@@ -1157,7 +1332,7 @@
     for (var i = 0; i < 25; i++) {
         if (i == 0) $(".part-top10").find("ul").eq(0).addClass("rank").append("<li></li>");
         // else if (i == 1) $(".part-top10").find("ul").eq(0).addClass("rank").append("<li><span>" + i + "</span></li>");
-        else  $(".part-top10").find("ul").eq(0).addClass("rank").append("<li>" + i + "</li>")
+        else $(".part-top10").find("ul").eq(0).addClass("rank").append("<li>" + i + "</li>")
     }
     for (var col = 0; col < 6; col++) {
         var ul = $("<ul></ul>");
@@ -1392,7 +1567,7 @@
                 var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">这里可以写一些，想展示在页面上的别的信息</p>'
                 return info;
             },
-            backgroundColor: "#ff7f50",//提示标签背景颜色
+            backgroundColor: "#89bdd3",//提示标签背景颜色
             textStyle: {color: "#fff"} //提示标签字体颜色
         },
         series: [
@@ -1419,8 +1594,8 @@
                     },
                     emphasis: {
                         borderWidth: .5,
-                        borderColor: '#4b0082',
-                        areaColor: "#AD6C6A",
+                        borderColor: '#89bdd3',
+                        areaColor: "#89bdd3",
                     }
                 },
                 data: dataMap
