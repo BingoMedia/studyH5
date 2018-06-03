@@ -268,7 +268,14 @@ ul, li {
     width: 1200px;
     /*height: 400px;*/
     margin: 0 auto;
+}
 
+/*时间轴*/
+.time-axis-wrap1 {
+    position: relative;
+    width: 950px;
+    height: 200px;
+    margin: 0 auto;
 }
 
 /*时间轴*/
@@ -277,6 +284,16 @@ ul, li {
     height: 150px;
     border: 2px solid #ccc;
     position: relative;
+}
+
+/*时间轴*/
+.time-axis-wrap1 .time-axis-line1 {
+    width: 100%;
+    height: 2px;
+    background: #ccc;
+    position: absolute;
+    top: 50%;
+    z-index: -1;
 }
 
 .time-axis-wrap .time-axis-line > .trangel {
@@ -289,13 +306,54 @@ ul, li {
     bottom: -10px;
     right: -10px;
 }
-
+.time-axis-wrap1 .time-axis-line1 > .trangel1 {
+    width: 0;
+    height: 0;
+    border-width: 9px;
+    border-style: solid;
+    border-color: transparent transparent transparent #ccc;
+    position: absolute;
+    bottom: -8px;
+    right: -10px;
+}
 .time-axis-wrap .time-axis-detail {
     position: absolute;
     width: 100px;
     text-align: center;
     display: none;
 }
+
+.time-axis-wrap1 .time-axis-detail1 {
+    position: absolute;
+    width: 80px;
+    text-align: center;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /*display: none;*/
+
+    visibility: hidden;
+}
+
+.time-axis-wrap1 .time-axis-detail1 .axis-line1 {
+    width: 1px;
+    background: #ccc;
+    height: 40px;
+}
+.time-axis-wrap1 .time-axis-detail1 .circle {
+    width: 4px;
+    height: 4px;
+    border: 2px solid #999999;
+    border-radius: 50%;
+    background: #fff;
+}
+/*
+<div class="axis-line1"></div>
+        <div class="axis-title1">杭州 </div>
+        <div class="axis-time1">2017.04.11</div>
+*/
 
 .time-axis-wrap .time-axis-detail img {
     width: 60px;
@@ -307,14 +365,23 @@ ul, li {
     color: #333;
     margin-top: 10px;
 }
-
+.time-axis-wrap1 .time-axis-detail1 .axis-title1 {
+    font-size: 16px;
+    text-align: center;
+    color: #89bdd3;
+}
 .time-axis-wrap .time-axis-detail .axis-time {
     font-size: 18px;
     text-align: center;
     color: #89bdd3;
     /*margin-top: 10px;*/
 }
-
+.time-axis-wrap1 .time-axis-detail1 .axis-time1 {
+    font-size: 18px;
+    text-align: center;
+    color: #333;
+    /*margin-top: 10px;*/
+}
 /*城市对比*/
 .content-wrap .chart-wrap {
     width: 300px;
