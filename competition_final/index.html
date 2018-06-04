@@ -1356,11 +1356,11 @@
         }, 1000);
     });
     $(".content-wrap p").find(".first").css({
-        "color":"white",
-        "background-color":"#98bf21",
-        "font-family":"Arial",
-        "font-size":"20px",
-        "padding":"5px"
+        "color": "white",
+        "background-color": "#98bf21",
+        "font-family": "Arial",
+        "font-size": "20px",
+        "padding": "5px"
     });
 
     $(".wrapewwe").click(function () {
@@ -1404,43 +1404,43 @@
         //         backgroundColor: "#999",
         //         color: "#fff"
         //     }, 1000);
-    }
+        // }
 
-    if (top > 1140) {
-        // iv class="content-div">
-        //     <div class="content-wrap">
-        //     <p class="subtitle"><span class="blue1">人才大战的时间与空间</span></p>
-        // </div>
-        // $(".content-wrap p").find(".blue1").animate({
-        //     backgroundColor: "#84acd3",
-        //     // color: "#fff"
-        // }, 1000);
+        if (top > 1140) {
+            // iv class="content-div">
+            //     <div class="content-wrap">
+            //     <p class="subtitle"><span class="blue1">人才大战的时间与空间</span></p>
+            // </div>
+            // $(".content-wrap p").find(".blue1").animate({
+            //     backgroundColor: "#84acd3",
+            //     // color: "#fff"
+            // }, 1000);
 
 
-    }
+        }
 
-    if (top >= 780) {
-        $('.time-axis-wrap1').find('.time-axis-detail1').each(function () {
-            var axisIndex = $(this).index();
-            var time = ((axisIndex) * 200) + 100;
+        if (top >= 780) {
+            $('.time-axis-wrap1').find('.time-axis-detail1').each(function () {
+                var axisIndex = $(this).index();
+                var time = ((axisIndex) * 200) + 100;
+                setTimeout(function () {
+                    $('.time-axis-wrap1').find('.time-axis-detail1').eq(axisIndex).css({visibility: "visible"})
+                }, time);
+
+            });
+        }
+        if (top >= 10440) {
             setTimeout(function () {
-                $('.time-axis-wrap1').find('.time-axis-detail1').eq(axisIndex).css({visibility: "visible"})
-            }, time);
-
-        });
-    }
-    if (top >= 10440) {
-        setTimeout(function () {
-            $('.content-wrap .currency-chart .sandian-line1').fadeIn(1000).css({width: "310px"})
-        }, 500);
-        setTimeout(function () {
-            $('.content-wrap .currency-chart .sandian-line2').fadeIn(1000).css({width: "337px"})
-        }, 1000);
-        setTimeout(function () {
-            $('.content-wrap .currency-chart .sandian-line3').fadeIn(1000).css({width: "337px"})
-        }, 1500);
-    }
-    //    content-wrap .currency-chart .sandian-line3
+                $('.content-wrap .currency-chart .sandian-line1').fadeIn(1000).css({width: "310px"})
+            }, 500);
+            setTimeout(function () {
+                $('.content-wrap .currency-chart .sandian-line2').fadeIn(1000).css({width: "337px"})
+            }, 1000);
+            setTimeout(function () {
+                $('.content-wrap .currency-chart .sandian-line3').fadeIn(1000).css({width: "337px"})
+            }, 1500);
+        }
+        //    content-wrap .currency-chart .sandian-line3
     })
     ;
 
