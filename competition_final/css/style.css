@@ -172,9 +172,14 @@ ul, li {
 .content-wrap .subtitle span {
     /*border-bottom: 2px #333 solid;*/
     padding-bottom: 4px;
-    font-weight: 900
+    font-weight: bold
 }
+.content-wrap p span.first {
+    /*border-bottom: 2px #333 solid;*/
+    /*padding-bottom: 4px;*/
+    font-weight: bold;
 
+}
 .content-wrap .subtitle {
     color: #333;
     font-size: 30px;
